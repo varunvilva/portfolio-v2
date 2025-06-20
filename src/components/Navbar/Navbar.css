@@ -1,0 +1,41 @@
+.navbar-container {
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 2rem;
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: color 0.3s ease; /* Fades text color smoothly */
+  overflow: hidden;
+}
+
+.navbar-button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #747fe0;
+  transition: width 0.3s ease;
+}
+
+.navbar-button:hover {
+  color: #747fe0; /* Fades to this color */
+}
+
+.navbar-button:hover::after {
+  width: 100%; /* Underline expands from left to right */
+}

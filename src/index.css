@@ -1,0 +1,23 @@
+/* Remove @font-face since we're using Google Fonts */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
+html, body {
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  font-family: 'Space Mono', Monaco, Consolas, 'Lucida Console', monospace;
+  color: #666;
+}
+
+
+/* Optional: Make root div take full width */
+#root {
+  width: 70%;
+  height: 100%;
+}

@@ -1,0 +1,137 @@
+.contact-section {
+  margin-bottom:3rem;
+  padding: 4rem 0;
+}
+
+.contact-container {
+  max-width: 75vw;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  margin: 0 0 3rem 0;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center ;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: inherit;
+}
+
+.contact-link:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-info {
+  text-align: left;
+  flex: 1;
+  background: inherit;
+}
+
+.contact-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  background: inherit;
+
+}
+
+.contact-info span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  background: transparent;
+
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 0;
+  }
+  
+  .contact-container {
+    padding: 0 1rem;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    
+  }
+  
+  .contact-link {
+    width: 100%;
+    max-width: 350px;
+    min-width: unset;
+    color: inherit !important;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-link {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .contact-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+.contact-info a{
+  text-decoration: None;
+  color: inherit;
+  background-color: transparent;
+}

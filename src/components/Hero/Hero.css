@@ -1,0 +1,66 @@
+.hero-container {
+  padding: 20px;
+  margin-top:4.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.hero-prompt {
+  display: flex;
+  align-items: center;
+  font-size: 4.5rem;
+  color: #747fe0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Terminal-style blinking cursor */
+.hero-prompt .Typewriter__cursor {
+  animation: terminal-blink 1s infinite;
+  color: #747fe0;
+}
+
+@keyframes terminal-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.hero-prompt-symbol {
+  margin-right: 8px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-description {
+  text-align: left;
+  font-size: 1.3rem;
+  font-weight: 200;
+  color: #666;
+  font-family: "Segoe UI", "Roboto", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 2.4rem;
+  max-width: 75%;
+  margin:2rem 0 0 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease; /* put this here */
+}
+
+a:hover {
+  color: #747fe0;
+}
+
+.scroll-link {
+  color: #747fe0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.scroll-link:hover {
+  color: #5a66d9;
+}
