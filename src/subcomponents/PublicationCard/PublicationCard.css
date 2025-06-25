@@ -95,10 +95,10 @@
   line-height: 1.6;
   margin-bottom: 24px;
   font-size: clamp(0.875rem, 2.5vw, 1rem);
-  max-height: clamp(8rem, 20vh, 12rem);
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  max-height:40rem;
 }
 
 .publication-card-description::-webkit-scrollbar {
