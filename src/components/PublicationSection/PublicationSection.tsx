@@ -17,7 +17,7 @@ const publications = [
 
   return (
     <section id="publication" className="publication-section" style={{marginBottom:"4rem"}}>
-      <h2>Publication</h2>
+      <h2>Publications</h2>
 
       {publications.map((publication, index) => (
         <PublicationCard

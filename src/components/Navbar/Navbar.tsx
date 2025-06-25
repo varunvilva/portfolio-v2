@@ -3,8 +3,8 @@ import './Navbar.css';
 // Define all navigation items in one place
 const navItems = [
   { id: 'projects', label: 'Projects' },
-  { id: 'publication', label: 'Publication' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'publication', label: 'Publications' },
+  { id: 'experience', label: 'Experiences' },
   { id: 'achievements', label: 'Achievements' },
   { id: 'contact', label: 'Contact' },
 ];

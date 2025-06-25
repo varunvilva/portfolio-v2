@@ -25,7 +25,7 @@ const experienceList = [
 const ExperienceSection: React.FC = () => {
   return (
     <section id="experience" className="experience-section">
-      <h2>Experience</h2>
+      <h2>Experiences</h2>
       {experienceList.map((item, index) => (
         <ExperienceCard
           key={index}
