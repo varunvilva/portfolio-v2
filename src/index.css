@@ -1,23 +1,78 @@
 /* Remove @font-face since we're using Google Fonts */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f0f0f0;
 }
 
 html, body {
   width: 100%;
-  margin: auto;
+  margin: 0;
+  padding: 0;
   height: 100%;
   font-family: 'Space Mono', Monaco, Consolas, 'Lucida Console', monospace;
   color: #666;
+  background-color: #f0f0f0; /* Only apply to body, not all elements */
 }
 
-
-/* Optional: Make root div take full width */
+/* Responsive root container */
 #root {
-  width: 70%;
-  height: 100%;
+  width: 100%;
+  max-width: 1200px; /* Maximum width for very large screens */
+  margin: 0 auto; /* Center the content */
+  min-height: 100vh;
+  padding: 0 20px; /* Add horizontal padding for breathing room */
+}
+
+/* Responsive breakpoints for root container */
+@media (min-width: 1024px) {
+  #root {
+    width: 85%; /* Slightly wider on large screens */
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #root {
+    width: 70%; /* Your original width for very large screens */
+    padding: 0 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    width: 100%;
+    padding: 0 15px; /* Reduce padding on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0 10px; /* Minimal padding on mobile */
+  }
+}
+
+/* Additional utility classes for responsive design */
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Ensure images and media are responsive */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive text scaling */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Slightly smaller base font size on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px; /* Even smaller on mobile */
+  }
 }
