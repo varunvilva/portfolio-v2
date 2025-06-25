@@ -1,6 +1,6 @@
 .terminal-container {
   max-width: 65vw;
-  margin: 2rem auto ;
+  margin: 2rem auto;
   margin-bottom: 5rem;
   background: #5a5d7a;
   border-radius: 8px;
@@ -52,9 +52,8 @@
   display: flex;
   align-items: left;
   background-color: #5a5d7a;
-
 }
-/* #37f3f2 */
+
 .prompt {
   color: white;
   background-color: #5a5d7a;
@@ -64,7 +63,6 @@
 .command {
   color: #ffffff;
   background-color: #5a5d7a;
-
 }
 
 .output {
@@ -72,19 +70,16 @@
   margin-left: 16px;
   text-align: left;
   background-color: #5a5d7a;
-
 }
 
 .string {
   color: #f9ca24;
   background-color: #5a5d7a;
-
 }
 
 .bracket {
   color: #f9ca24;
   background-color: #5a5d7a;
-
 }
 
 .cursor {
@@ -101,8 +96,153 @@
   }
 }
 
-a{
-    text-decoration: none;
-    background-color: inherit;
-    color:#37f3f2;
+a {
+  text-decoration: none;
+  background-color: inherit;
+  color: #37f3f2;
+}
+
+/* Responsive breakpoints */
+/* Large tablets and small laptops (1024px and down) */
+@media (max-width: 1024px) {
+  .terminal-container {
+    max-width: 75vw;
+    margin: 1.8rem auto;
+    margin-bottom: 4rem;
+  }
+  
+  .terminal-content {
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablets (768px and down) */
+@media (max-width: 768px) {
+  .terminal-container {
+    max-width: 85vw;
+    margin: 1.5rem auto;
+    margin-bottom: 3.5rem;
+    border-radius: 6px;
+  }
+  
+  .terminal-header {
+    padding: 10px 14px;
+  }
+  
+  .traffic-light {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .traffic-lights {
+    gap: 6px;
+  }
+  
+  .terminal-content {
+    padding: 16px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  .output {
+    margin-left: 12px;
+    margin-bottom: 14px;
+  }
+  
+  .prompt {
+    margin-right: 6px;
+  }
+}
+
+/* Small tablets and large phones (600px and down) */
+@media (max-width: 600px) {
+  .terminal-container {
+    max-width: 92vw;
+    margin: 1.2rem auto;
+    margin-bottom: 3rem;
+    border-radius: 4px;
+  }
+  
+  .terminal-header {
+    padding: 8px 12px;
+  }
+  
+  .terminal-content {
+    padding: 14px;
+    font-size: 0.85rem;
+  }
+  
+  .output {
+    margin-left: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .terminal-line {
+    flex-wrap: wrap;
+  }
+}
+
+/* Mobile phones (480px and down) */
+@media (max-width: 480px) {
+  .terminal-container {
+    max-width: 95vw;
+    margin: 1rem auto;
+    margin-bottom: 2.5rem;
+  }
+  
+  .terminal-header {
+    padding: 6px 10px;
+  }
+  
+  .traffic-light {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .traffic-lights {
+    gap: 4px;
+  }
+  
+  .terminal-content {
+    padding: 12px;
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+  
+  .output {
+    margin-left: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .prompt {
+    margin-right: 4px;
+  }
+  
+  .terminal-line {
+    margin-bottom: 3px;
+  }
+}
+
+/* Very small screens (360px and down) */
+@media (max-width: 360px) {
+  .terminal-container {
+    max-width: 98vw;
+    margin: 0.8rem auto;
+    margin-bottom: 2rem;
+  }
+  
+  .terminal-content {
+    padding: 10px;
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+  
+  .output {
+    margin-left: 6px;
+    margin-bottom: 8px;
+  }
+  
+  .terminal-line {
+    margin-bottom: 2px;
+  }
 }
