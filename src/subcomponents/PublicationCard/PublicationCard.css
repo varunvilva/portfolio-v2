@@ -1,7 +1,6 @@
 .publication-card {
   display: flex;
-  max-width: 75vw;
-  max-height: 35rem;
+  max-width: min(75vw, 1200px);
   margin: 4rem auto;
   margin-bottom: 2rem;
   background: #ffffff;
@@ -26,6 +25,7 @@
   width: 100%;
   height: 100%;
   object-fit: none;
+  object-position: center;
 }
 
 .publication-card-overlay {
@@ -39,13 +39,13 @@
 }
 
 .publication-card-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   font-weight: 600;
   margin: 0;
 }
 
 .publication-card-location {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   opacity: 0.9;
   margin: 4px 0 0 0;
 }
@@ -58,7 +58,7 @@
 
 .publication-card-header {
   background: inherit;
-  padding: 12px 20px;
+  padding: clamp(8px, 2vw, 12px) clamp(16px, 3vw, 20px);
   border-bottom: 1px solid #e9ecef;
 }
 
@@ -71,50 +71,54 @@
 .nav-back-btn {
   background: none;
   border: none;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   cursor: pointer;
   color: #6c757d;
   padding: 4px;
 }
 
-
-
 .publication-card-info {
-  padding: 24px;
+  padding: clamp(16px, 3vw, 24px);
   flex: 1;
 }
 
 .publication-card-main-title {
-  font-size: 2rem;
+  font-size: clamp(1.25rem, 4vw, 2rem);
   font-weight: 600;
   color: #495057;
   margin: 0 0 16px 0;
+  line-height: 1.2;
 }
 
 .publication-card-description {
   color: #6c757d;
   line-height: 1.6;
   margin-bottom: 24px;
-  font-size: 1rem;
-  max-height: 12rem;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  max-height: clamp(8rem, 20vh, 12rem);
   overflow-y: auto;
   scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.publication-card-description::-webkit-scrollbar {
+  display: none;
 }
 
 .publication-card-technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 4rem;
+  gap: clamp(6px, 1.5vw, 8px);
+  margin-bottom: clamp(2rem, 5vw, 4rem);
   justify-content: center;
 }
 
 .tech-tag {
   background: #e3f2fd;
   color: #1976d2;
-  padding: 6px 12px;
+  padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px);
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
   font-weight: 500;
   border: 1px solid #bbdefb;
 }
@@ -127,16 +131,17 @@
 
 .action-btn {
   text-decoration: none;
-  padding: 10px 20px;
+  padding: clamp(8px, 2vw, 10px) clamp(16px, 3vw, 20px);
   border-radius: 6px;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   transition: all 0.2s ease;
   border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .action-btn.primary {
@@ -159,11 +164,43 @@
   color: #495057;
 }
 
-/* Responsive design */
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .publication-card {
+    max-width: 85vw;
+  }
+  
+  .publication-card-image-container {
+    min-height: 25rem;
+  }
+  
+  .publication-card-info {
+    padding: 20px;
+  }
+}
+
+/* Large mobile/Small tablet */
+@media (max-width: 900px) {
+  .publication-card {
+    max-width: 90vw;
+    margin: 2rem auto;
+  }
+  
+  .publication-card-image-container {
+    min-height: 20rem;
+  }
+  
+  .publication-card-main-title {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
   .publication-card {
     flex-direction: column;
     margin: 1rem;
+    max-width: calc(100vw - 2rem);
   }
   
   .publication-card-image-container {
@@ -171,12 +208,127 @@
     min-height: 200px;
   }
   
+  .publication-card-info {
+    padding: 16px;
+  }
+  
+  .publication-card-main-title {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  
+  .publication-card-description {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    max-height: 8rem;
+  }
+  
+  .publication-card-technologies {
+    margin-bottom: 2rem;
+    gap: 6px;
+  }
+  
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+  
   .publication-card-actions {
     flex-direction: column;
+    gap: 8px;
   }
   
   .action-btn {
     text-align: center;
     justify-content: center;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .publication-card {
+    margin: 0.5rem;
+    max-width: calc(100vw - 1rem);
+  }
+  
+  .publication-card-image-container {
+    min-height: 180px;
+  }
+  
+  .publication-card-info {
+    padding: 12px;
+  }
+  
+  .publication-card-main-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .publication-card-description {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    max-height: 6rem;
+  }
+  
+  .publication-card-technologies {
+    margin-bottom: 1.5rem;
+  }
+  
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+  
+  .action-btn {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .publication-card-overlay {
+    padding: 15px;
+  }
+  
+  .publication-card-title {
+    font-size: 1rem;
+  }
+  
+  .publication-card-location {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .publication-card {
+    margin: 0.25rem;
+    max-width: calc(100vw - 0.5rem);
+  }
+  
+  .publication-card-main-title {
+    font-size: 1.1rem;
+  }
+  
+  .publication-card-description {
+    font-size: 0.8rem;
+    max-height: 5rem;
+  }
+  
+  .tech-tag {
+    font-size: 0.65rem;
+    padding: 2px 4px;
+  }
+}
+
+/* Large screen optimization */
+@media (min-width: 1400px) {
+  .publication-card {
+    max-width: 1200px;
+  }
+  
+  .publication-card-image-container {
+    min-height: 35rem;
   }
 }

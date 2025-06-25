@@ -24,32 +24,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div className="project-card">
       <div className="project-card-image-container">
-        <img 
-          src={imageUrl} 
+        <img
+          src={imageUrl}
           alt={imageAlt}
           className="project-card-image"
         />
-        
       </div>
-      
       <div className="project-card-content">
-        
-        
         <div className="project-card-info">
           <h2 className="project-card-main-title">{title}</h2>
           <p className="project-card-description">{description}</p>
-          
           <div className="project-card-technologies">
             {technologies.map((tech, index) => (
               <span key={index} className="tech-tag">{tech}</span>
             ))}
           </div>
-          
           <div className="project-card-actions">
             {liveUrl && (
-              <a 
-                href={liveUrl} 
-                target="_blank" 
+              <a
+                href={liveUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="action-btn primary"
               >
@@ -57,9 +51,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </a>
             )}
             {sourceUrl && (
-              <a 
-                href={sourceUrl} 
-                target="_blank" 
+              <a
+                href={sourceUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="action-btn secondary"
               >
