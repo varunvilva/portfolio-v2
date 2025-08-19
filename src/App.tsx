@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import ProjectsSection from './components/ProjectsSection/ProjectsSection'
 import PublicationSection from './components/PublicationSection/PublicationSection'
 import Terminal from './components/Terminal/Terminal'
-
+import Certifications from './components/CertificationsSection/CertificationsSection'
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
     <PublicationSection/>
     <ExperienceSection/>
     <AchievementSection/>
+    <Certifications/>
     <ContactSection/>
     <Footer/>
     </>

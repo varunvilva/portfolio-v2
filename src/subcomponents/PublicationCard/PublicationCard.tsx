@@ -3,7 +3,7 @@ import './PublicationCard.css';
 
 interface publicationCardProps {
   title: string;
-  abstract:string;
+  // abstract:string;
   imageUrl: string;
   imageAlt:string;
   liveUrl?: string;
@@ -11,7 +11,7 @@ interface publicationCardProps {
 
 const publicationCard: React.FC<publicationCardProps> = ({
   title,
-  abstract,
+  // abstract,
   imageUrl,
   imageAlt,
   liveUrl,
@@ -32,7 +32,7 @@ const publicationCard: React.FC<publicationCardProps> = ({
         
         <div className="publication-card-info">
           <h2 className="publication-card-main-title">{title}</h2>
-          <p className="publication-card-description">{abstract}</p>
+          {/* <p className="publication-card-description">{abstract}</p> */}
           
           <div className="publication-card-actions">
             {liveUrl && (

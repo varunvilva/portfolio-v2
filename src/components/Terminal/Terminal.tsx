@@ -31,9 +31,9 @@ const Terminal: React.FC = () => {
           <span className="bracket">["</span>
           <span className="string"><a href="mailto:varunvilva1208@gmail.com">varunvilva1208@gmail.com</a></span>
           <span className="bracket">", "</span>
-          <span className="string"><a href="linkedin.com/in/varunvilva">LinkedIn</a></span>
+          <span className="string"><a href="https://linkedin.com/in/varunvilva" target='_blank'>LinkedIn</a></span>
           <span className="bracket">", "</span>
-          <span className="string"><a href="github.com/varunvilva">github</a></span>
+          <span className="string"><a href="https://github.com/varunvilva" target='_blank'>github</a></span>
           <span className="bracket">"]</span>
         </div>
 

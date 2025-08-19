@@ -8,6 +8,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 200px; /* Add minimum height for the entire card */
 }
 
 .publication-card:hover {
@@ -17,15 +18,17 @@
 
 .publication-card-image-container {
   position: relative;
-  width: 50%;
-  min-height: 30rem;
+  width: auto;
+  min-height: 20rem; /* Reduced from 30rem to 200px */
+  max-height: 40rem; /* Add max height to prevent oversized images */
 }
 
 .publication-card-image {
   width: 100%;
   height: 100%;
-  object-fit: none;
+  object-fit: contain; /* Changed from 'none' to 'cover' for better image fitting */
   object-position: center;
+  
 }
 
 .publication-card-overlay {
@@ -54,6 +57,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 200px; /* Ensure content area has minimum height */
 }
 
 .publication-card-header {
@@ -80,6 +84,9 @@
 .publication-card-info {
   padding: clamp(16px, 3vw, 24px);
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; /* Center content vertically */
 }
 
 .publication-card-main-title {
@@ -98,7 +105,8 @@
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  max-height:40rem;
+  max-height: 20rem; /* Reduced from 40rem */
+  flex-grow: 1; /* Allow description to grow if needed */
 }
 
 .publication-card-description::-webkit-scrollbar {
@@ -109,7 +117,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: clamp(6px, 1.5vw, 8px);
-  margin-bottom: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem); /* Reduced from 2rem-4rem */
   justify-content: center;
 }
 
@@ -127,6 +135,7 @@
   display: flex;
   gap: 12px;
   justify-content: center;
+  /* margin-top: auto; Push actions to bottom */
 }
 
 .action-btn {
@@ -171,7 +180,8 @@
   }
   
   .publication-card-image-container {
-    min-height: 25rem;
+    min-height: 180px; /* Reduced from 25rem */
+    max-height: 300px;
   }
   
   .publication-card-info {
@@ -187,7 +197,8 @@
   }
   
   .publication-card-image-container {
-    min-height: 20rem;
+    min-height: 160px; /* Reduced from 20rem */
+    max-height: 250px;
   }
   
   .publication-card-main-title {
@@ -204,12 +215,25 @@
   }
   
   .publication-card-image-container {
+    width: auto;
+    height: 40rem;
+    min-height: 15rem;
+    max-height: 40rem;
+  }
+  .publication-card-image {
     width: 100%;
-    min-height: 200px;
+    height: 100%;
+    object-fit: contain; /* Changed from 'none' to 'cover' for better image fitting */
+    object-position: center;
+  }
+  
+  .publication-card-content {
+    min-height: auto; /* Remove fixed height on mobile */
   }
   
   .publication-card-info {
     padding: 16px;
+    justify-content: flex-start; /* Align to top on mobile */
   }
   
   .publication-card-main-title {
@@ -224,7 +248,7 @@
   }
   
   .publication-card-technologies {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem; /* Reduced spacing */
     gap: 6px;
   }
   
@@ -236,6 +260,7 @@
   .publication-card-actions {
     flex-direction: column;
     gap: 8px;
+    margin-top: 0; /* Remove auto margin on mobile */
   }
   
   .action-btn {
@@ -255,7 +280,8 @@
   }
   
   .publication-card-image-container {
-    min-height: 180px;
+    min-height: 120px; /* Further reduced */
+    max-height: 160px;
   }
   
   .publication-card-info {
@@ -274,7 +300,7 @@
   }
   
   .publication-card-technologies {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reduced spacing */
   }
   
   .tech-tag {
@@ -307,6 +333,11 @@
     max-width: calc(100vw - 0.5rem);
   }
   
+  .publication-card-image-container {
+    min-height: 100px; /* Further reduced */
+    max-height: 140px;
+  }
+  
   .publication-card-main-title {
     font-size: 1.1rem;
   }
@@ -329,6 +360,7 @@
   }
   
   .publication-card-image-container {
-    min-height: 35rem;
+    min-height: 250px; /* Reduced from 35rem */
+    max-height: 400px;
   }
 }
