@@ -1,6 +1,8 @@
+import './Footer.css';
+
 const Footer = () => {
   return (
-    <footer style={{ padding: '1rem', background: '#eee', textAlign: 'center' }}>
+    <footer className="footer">
       Made By Varun Vilvadrinath © 2025
     </footer>
   );

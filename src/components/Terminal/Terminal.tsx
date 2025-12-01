@@ -20,7 +20,7 @@ const Terminal: React.FC = () => {
           <span className="command">Varun.currentLocation</span>
         </div>
         <div className="output">
-          <span className="string">"Bangaluru, KA"</span>
+          <span className="string">"Bengaluru, KA"</span>
         </div>
 
         <div className="terminal-line">

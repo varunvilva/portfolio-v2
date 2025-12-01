@@ -3,32 +3,36 @@
   max-width: min(75vw, 1200px);
   margin: 4rem auto;
   margin-bottom: 2rem;
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px var(--shadow-color);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 200px; /* Add minimum height for the entire card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  min-height: 200px;
+  /* Add minimum height for the entire card */
 }
 
 .publication-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px var(--shadow-color);
 }
 
 .publication-card-image-container {
   position: relative;
   width: auto;
-  min-height: 20rem; /* Reduced from 30rem to 200px */
-  max-height: 40rem; /* Add max height to prevent oversized images */
+  min-height: 20rem;
+  /* Reduced from 30rem to 200px */
+  max-height: 40rem;
+  /* Add max height to prevent oversized images */
 }
 
 .publication-card-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Changed from 'none' to 'cover' for better image fitting */
+  object-fit: contain;
+  /* Changed from 'none' to 'cover' for better image fitting */
   object-position: center;
-  
+
 }
 
 .publication-card-overlay {
@@ -57,13 +61,14 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 200px; /* Ensure content area has minimum height */
+  min-height: 200px;
+  /* Ensure content area has minimum height */
 }
 
 .publication-card-header {
   background: inherit;
   padding: clamp(8px, 2vw, 12px) clamp(16px, 3vw, 20px);
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .publication-card-nav {
@@ -77,7 +82,7 @@
   border: none;
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   cursor: pointer;
-  color: #6c757d;
+  color: var(--text-secondary);
   padding: 4px;
 }
 
@@ -86,27 +91,30 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; /* Center content vertically */
+  justify-content: space-evenly;
+  /* Center content vertically */
 }
 
 .publication-card-main-title {
   font-size: clamp(1.25rem, 4vw, 2rem);
   font-weight: 600;
-  color: #495057;
+  color: var(--text-color);
   margin: 0 0 16px 0;
   line-height: 1.2;
 }
 
 .publication-card-description {
-  color: #6c757d;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 24px;
   font-size: clamp(0.875rem, 2.5vw, 1rem);
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  max-height: 20rem; /* Reduced from 40rem */
-  flex-grow: 1; /* Allow description to grow if needed */
+  max-height: 20rem;
+  /* Reduced from 40rem */
+  flex-grow: 1;
+  /* Allow description to grow if needed */
 }
 
 .publication-card-description::-webkit-scrollbar {
@@ -117,18 +125,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: clamp(6px, 1.5vw, 8px);
-  margin-bottom: clamp(1rem, 3vw, 2rem); /* Reduced from 2rem-4rem */
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  /* Reduced from 2rem-4rem */
   justify-content: center;
 }
 
 .tech-tag {
-  background: #e3f2fd;
-  color: #1976d2;
+  background: var(--tag-bg);
+  color: var(--tag-text);
   padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px);
   border-radius: 20px;
   font-size: clamp(0.75rem, 2vw, 0.85rem);
   font-weight: 500;
-  border: 1px solid #bbdefb;
+  border: 1px solid var(--tag-border);
 }
 
 .publication-card-actions {
@@ -154,23 +163,23 @@
 }
 
 .action-btn.primary {
-  background: #6c63ff;
+  background: var(--primary-color);
   color: white;
 }
 
 .action-btn.primary:hover {
-  background: #5a52d5;
+  opacity: 0.9;
 }
 
 .action-btn.secondary {
-  background: #f8f9fa;
-  color: #6c757d;
-  border: 1px solid #dee2e6;
+  background: var(--bg-color);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
 }
 
 .action-btn.secondary:hover {
-  background: #e9ecef;
-  color: #495057;
+  background: var(--border-color);
+  color: var(--text-color);
 }
 
 /* Tablet styles */
@@ -178,12 +187,13 @@
   .publication-card {
     max-width: 85vw;
   }
-  
+
   .publication-card-image-container {
-    min-height: 180px; /* Reduced from 25rem */
+    min-height: 180px;
+    /* Reduced from 25rem */
     max-height: 300px;
   }
-  
+
   .publication-card-info {
     padding: 20px;
   }
@@ -195,12 +205,13 @@
     max-width: 90vw;
     margin: 2rem auto;
   }
-  
+
   .publication-card-image-container {
-    min-height: 160px; /* Reduced from 20rem */
+    min-height: 160px;
+    /* Reduced from 20rem */
     max-height: 250px;
   }
-  
+
   .publication-card-main-title {
     font-size: clamp(1.1rem, 3.5vw, 1.5rem);
   }
@@ -213,56 +224,62 @@
     margin: 1rem;
     max-width: calc(100vw - 2rem);
   }
-  
+
   .publication-card-image-container {
     width: auto;
     height: 40rem;
     min-height: 15rem;
     max-height: 40rem;
   }
+
   .publication-card-image {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Changed from 'none' to 'cover' for better image fitting */
+    object-fit: contain;
+    /* Changed from 'none' to 'cover' for better image fitting */
     object-position: center;
   }
-  
+
   .publication-card-content {
-    min-height: auto; /* Remove fixed height on mobile */
+    min-height: auto;
+    /* Remove fixed height on mobile */
   }
-  
+
   .publication-card-info {
     padding: 16px;
-    justify-content: flex-start; /* Align to top on mobile */
+    justify-content: flex-start;
+    /* Align to top on mobile */
   }
-  
+
   .publication-card-main-title {
     font-size: 1.4rem;
     margin-bottom: 12px;
   }
-  
+
   .publication-card-description {
     font-size: 0.9rem;
     margin-bottom: 16px;
     max-height: 8rem;
   }
-  
+
   .publication-card-technologies {
-    margin-bottom: 1rem; /* Reduced spacing */
+    margin-bottom: 1rem;
+    /* Reduced spacing */
     gap: 6px;
   }
-  
+
   .tech-tag {
     font-size: 0.75rem;
     padding: 4px 8px;
   }
-  
+
   .publication-card-actions {
     flex-direction: column;
     gap: 8px;
-    margin-top: 0; /* Remove auto margin on mobile */
+    margin-top: 0;
+    /* Remove auto margin on mobile */
   }
-  
+
   .action-btn {
     text-align: center;
     justify-content: center;
@@ -278,49 +295,51 @@
     margin: 0.5rem;
     max-width: calc(100vw - 1rem);
   }
-  
+
   .publication-card-image-container {
-    min-height: 120px; /* Further reduced */
+    min-height: 120px;
+    /* Further reduced */
     max-height: 160px;
   }
-  
+
   .publication-card-info {
     padding: 12px;
   }
-  
+
   .publication-card-main-title {
     font-size: 1.2rem;
     margin-bottom: 10px;
   }
-  
+
   .publication-card-description {
     font-size: 0.85rem;
     margin-bottom: 12px;
     max-height: 6rem;
   }
-  
+
   .publication-card-technologies {
-    margin-bottom: 1rem; /* Reduced spacing */
+    margin-bottom: 1rem;
+    /* Reduced spacing */
   }
-  
+
   .tech-tag {
     font-size: 0.7rem;
     padding: 3px 6px;
   }
-  
+
   .action-btn {
     padding: 10px 12px;
     font-size: 0.8rem;
   }
-  
+
   .publication-card-overlay {
     padding: 15px;
   }
-  
+
   .publication-card-title {
     font-size: 1rem;
   }
-  
+
   .publication-card-location {
     font-size: 0.75rem;
   }
@@ -332,21 +351,22 @@
     margin: 0.25rem;
     max-width: calc(100vw - 0.5rem);
   }
-  
+
   .publication-card-image-container {
-    min-height: 100px; /* Further reduced */
+    min-height: 100px;
+    /* Further reduced */
     max-height: 140px;
   }
-  
+
   .publication-card-main-title {
     font-size: 1.1rem;
   }
-  
+
   .publication-card-description {
     font-size: 0.8rem;
     max-height: 5rem;
   }
-  
+
   .tech-tag {
     font-size: 0.65rem;
     padding: 2px 4px;
@@ -358,9 +378,10 @@
   .publication-card {
     max-width: 1200px;
   }
-  
+
   .publication-card-image-container {
-    min-height: 250px; /* Reduced from 35rem */
+    min-height: 250px;
+    /* Reduced from 35rem */
     max-height: 400px;
   }
 }

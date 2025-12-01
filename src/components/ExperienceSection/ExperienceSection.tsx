@@ -6,7 +6,7 @@ import jio from '../../assets/jio.webp'; // Uncomment and import Jio image
 const experienceList = [
   {
     company: "Kickdrum",
-    location: "Banglore, India",
+    location: "Bengaluru, India",
     year: "Jan 2025- Present",
     experience: "Gained hands-on experience across the full stack — including React with TypeScript for frontend development, Java for backend services, and various AWS services for deployment and scalability. Also explored the data engineering domain through practical exposure. As a key project, developed a full-featured hotel management system comprising both client and admin portals, with fault tolerance and scalability at the core of the system’s design. Emphasized clean architecture, modular components, and robust API integration to support real-world operational needs.",
     image: kickdrum,

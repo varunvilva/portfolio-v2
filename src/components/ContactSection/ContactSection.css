@@ -1,5 +1,5 @@
 .contact-section {
-  margin-bottom:3rem;
+  margin-bottom: 3rem;
   padding: 4rem 0;
 }
 
@@ -14,6 +14,7 @@
   font-size: 2rem;
   font-weight: 600;
   margin: 0 0 1rem 0;
+  color: var(--text-color);
 }
 
 .contact-subtitle {
@@ -21,11 +22,12 @@
   margin: 0 0 3rem 0;
   opacity: 0.9;
   line-height: 1.5;
+  color: var(--text-secondary);
 }
 
 .contact-links {
   display: flex;
-  justify-content: center ;
+  justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
 }
@@ -35,21 +37,23 @@
   align-items: center;
   gap: 1rem;
   padding: 1.5rem 2rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.3s ease;
   min-width: 25rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  color: inherit;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  color: var(--text-color);
 }
 
 .contact-link:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: var(--card-bg);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  color: var(--primary-color);
 }
 
 .contact-icon {
@@ -74,6 +78,7 @@
   font-weight: 600;
   margin: 0 0 0.25rem 0;
   background: inherit;
+  color: inherit;
 
 }
 
@@ -81,6 +86,7 @@
   font-size: 0.9rem;
   opacity: 0.8;
   background: transparent;
+  color: inherit;
 
 }
 
@@ -90,29 +96,29 @@
   .contact-section {
     padding: 3rem 0;
   }
-  
+
   .contact-container {
     padding: 0 1rem;
   }
-  
+
   .contact-title {
     font-size: 2rem;
   }
-  
+
   .contact-links {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    
+
   }
-  
+
   .contact-link {
     width: 100%;
     max-width: 350px;
     min-width: unset;
-    color: inherit !important;
+    color: var(--text-color) !important;
   }
-  
+
   .contact-info {
     text-align: center;
   }
@@ -122,7 +128,7 @@
   .contact-link {
     padding: 1.25rem 1.5rem;
   }
-  
+
   .contact-icon {
     width: 35px;
     height: 35px;
@@ -130,7 +136,7 @@
 }
 
 
-.contact-info a{
+.contact-info a {
   text-decoration: None;
   color: inherit;
   background-color: transparent;

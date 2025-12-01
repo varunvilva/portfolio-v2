@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   font-size: 4.5rem;
-  color: #747fe0;
+  color: var(--primary-color);
   font-weight: 400;
   letter-spacing: 0.02em;
 }
@@ -16,14 +16,18 @@
 /* Terminal-style blinking cursor */
 .hero-prompt .Typewriter__cursor {
   animation: terminal-blink 1s infinite;
-  color: #747fe0;
+  color: var(--primary-color);
 }
 
 @keyframes terminal-blink {
-  0%, 50% {
+
+  0%,
+  50% {
     opacity: 1;
   }
-  51%, 100% {
+
+  51%,
+  100% {
     opacity: 0;
   }
 }
@@ -38,7 +42,7 @@
   text-align: left;
   font-size: 1.3rem;
   font-weight: 200;
-  color: #666;
+  color: var(--text-secondary);
   font-family: "Segoe UI", "Roboto", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 2.4rem;
   max-width: 75%;
@@ -52,17 +56,28 @@ a {
 }
 
 a:hover {
-  color: #747fe0;
+  color: var(--primary-color);
+}
+
+.company-link {
+  color: var(--primary-color);
+  transition: opacity 0.3s ease;
+}
+
+.company-link:hover {
+  opacity: 0.8;
 }
 
 .scroll-link {
-  color: #747fe0;
+  color: var(--primary-color);
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .scroll-link:hover {
   color: #5a66d9;
+  /* Keep a slightly different hover color or use opacity */
+  opacity: 0.8;
 }
 
 /* Responsive breakpoints */
@@ -71,18 +86,19 @@ a:hover {
   .hero-prompt {
     font-size: 3.5rem;
   }
-  
+
   .hero-description {
     font-size: 1.2rem;
     line-height: 2.2rem;
     max-width: 85%;
   }
 }
+
 @media (max-width: 1024px) {
   .hero-prompt {
     font-size: 3.5rem;
   }
-  
+
   .hero-description {
     font-size: 1.2rem;
     line-height: 2.2rem;
@@ -94,13 +110,14 @@ a:hover {
   .hero-prompt {
     font-size: 3.2rem;
   }
-  
+
   .hero-description {
     font-size: 1.2rem;
     line-height: 2.2rem;
     max-width: 85%;
   }
 }
+
 /* Tablets (768px and down) */
 @media (max-width: 768px) {
   .hero-container {
@@ -108,15 +125,15 @@ a:hover {
     margin-top: 3rem;
     margin-bottom: 3rem;
   }
-  
+
   .hero-prompt {
     font-size: 2.8rem;
   }
-  
+
   .hero-prompt-symbol {
     margin-right: 6px;
   }
-  
+
   .hero-description {
     font-size: 1.1rem;
     line-height: 2rem;
@@ -132,15 +149,15 @@ a:hover {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
   }
-  
+
   .hero-prompt {
     font-size: 2.4rem;
   }
-  
+
   .hero-prompt-symbol {
     margin-right: 5px;
   }
-  
+
   .hero-description {
     font-size: 1.05rem;
     line-height: 1.9rem;
@@ -157,16 +174,16 @@ a:hover {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  
+
   .hero-prompt {
     font-size: 2rem;
     flex-wrap: wrap;
   }
-  
+
   .hero-prompt-symbol {
     margin-right: 4px;
   }
-  
+
   .hero-description {
     font-size: 1rem;
     line-height: 1.8rem;
@@ -174,11 +191,12 @@ a:hover {
     margin: 1rem 0 0 0;
   }
 }
+
 @media (max-width: 395px) {
   .hero-prompt {
     font-size: 1.6rem;
   }
-  
+
   .hero-description {
     font-size: 0.9rem;
     line-height: 1.6rem;
