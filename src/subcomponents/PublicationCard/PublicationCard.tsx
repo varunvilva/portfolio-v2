@@ -1,55 +1,59 @@
-import React from 'react';
-import './PublicationCard.css';
-
-interface publicationCardProps {
+interface PublicationCardProps {
   title: string;
-  // abstract:string;
   imageUrl: string;
-  imageAlt:string;
+  imageAlt: string;
   liveUrl?: string;
 }
 
-const publicationCard: React.FC<publicationCardProps> = ({
-  title,
-  // abstract,
-  imageUrl,
-  imageAlt,
-  liveUrl,
-}) => {
+const PublicationCard = ({ title, imageUrl, imageAlt, liveUrl }: PublicationCardProps) => {
   return (
-    <div className="publication-card">
-      <div className="publication-card-image-container">
-        <img 
-          src={imageUrl} 
+    <article
+      className="
+        flex flex-col md:flex-row
+        overflow-hidden
+        rounded-xl
+        bg-[var(--color-surface)]
+        shadow-[0_4px_20px_var(--color-shadow)]
+        transition-[transform,box-shadow,background-color] duration-300
+        hover:-translate-y-1 hover:shadow-[0_8px_30px_var(--color-shadow)]
+      "
+    >
+      <div className="flex h-56 w-full items-center justify-center bg-[var(--color-surface)] md:h-auto md:w-2/5">
+        <img
+          src={imageUrl}
           alt={imageAlt}
-          className="publication-card-image"
+          className="h-full w-full object-contain object-center p-4"
+          loading="lazy"
         />
-        
       </div>
-      
-      <div className="publication-card-content">
-        
-        
-        <div className="publication-card-info">
-          <h2 className="publication-card-main-title">{title}</h2>
-          {/* <p className="publication-card-description">{abstract}</p> */}
-          
-          <div className="publication-card-actions">
-            {liveUrl && (
-              <a 
-                href={liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="action-btn primary"
-              >
-                Visit Site ↗
-              </a>
-            )}
+
+      <div className="flex flex-1 flex-col justify-center p-5 text-center sm:p-6 md:p-8">
+        <h3 className="mb-6 text-xl font-semibold leading-tight text-[var(--color-text)] sm:text-2xl">
+          {title}
+        </h3>
+
+        {liveUrl && (
+          <div className="flex justify-center">
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex items-center justify-center gap-1.5
+                rounded-md
+                bg-[var(--color-primary)] px-5 py-2.5
+                text-sm font-medium text-white
+                transition-opacity duration-200
+                hover:opacity-90
+              "
+            >
+              Visit Site ↗
+            </a>
           </div>
-        </div>
+        )}
       </div>
-    </div>
+    </article>
   );
 };
 
-export default publicationCard;
+export default PublicationCard;

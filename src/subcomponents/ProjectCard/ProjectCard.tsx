@@ -1,69 +1,110 @@
-import React from 'react';
-import './ProjectCard.css';
-
 interface ProjectCardProps {
   title: string;
   description: string;
   imageUrl: string;
   imageAlt: string;
-  technologies: string[];
+  technologies: readonly string[];
   liveUrl?: string;
   sourceUrl?: string;
-  location?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard = ({
   title,
   description,
   imageUrl,
   imageAlt,
   technologies,
   liveUrl,
-  sourceUrl
-}) => {
+  sourceUrl,
+}: ProjectCardProps) => {
   return (
-    <div className="project-card">
-      <div className="project-card-image-container">
+    <article
+      className="
+        flex flex-col md:flex-row
+        overflow-hidden
+        rounded-xl
+        bg-[var(--color-surface)]
+        shadow-[0_4px_20px_var(--color-shadow)]
+        transition-[transform,box-shadow,background-color] duration-300
+        hover:-translate-y-1 hover:shadow-[0_8px_30px_var(--color-shadow)]
+      "
+    >
+      <div className="relative h-48 w-full flex-shrink-0 sm:h-56 md:h-auto md:w-1/2">
         <img
           src={imageUrl}
           alt={imageAlt}
-          className="project-card-image"
+          className="h-full w-full object-cover"
+          loading="lazy"
         />
       </div>
-      <div className="project-card-content">
-        <div className="project-card-info">
-          <h2 className="project-card-main-title">{title}</h2>
-          <p className="project-card-description">{description}</p>
-          <div className="project-card-technologies">
-            {technologies.map((tech, index) => (
-              <span key={index} className="tech-tag">{tech}</span>
-            ))}
-          </div>
-          <div className="project-card-actions">
-            {liveUrl && (
-              <a
-                href={liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-btn primary"
-              >
-                Live Demo ↗
-              </a>
-            )}
-            {sourceUrl && (
-              <a
-                href={sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-btn secondary"
-              >
-                ⌘ View Source
-              </a>
-            )}
-          </div>
+
+      <div className="flex min-w-0 flex-1 flex-col bg-[var(--color-surface)] p-5 text-center sm:p-6 md:p-8">
+        <h3 className="mb-4 text-xl font-semibold leading-tight text-[var(--color-text)] sm:text-2xl">
+          {title}
+        </h3>
+
+        <p className="mb-6 flex-grow text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base">
+          {description}
+        </p>
+
+        <div className="mb-6 flex flex-wrap justify-center gap-2">
+          {technologies.map((tech) => (
+            <span
+              key={tech}
+              className="
+                whitespace-nowrap
+                rounded-full
+                border border-[var(--color-tag-border)]
+                bg-[var(--color-tag-bg)]
+                px-3 py-1.5
+                text-xs font-medium text-[var(--color-tag-text)]
+                sm:text-sm
+              "
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:flex-wrap">
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex items-center justify-center gap-1.5
+                rounded-md
+                bg-[var(--color-primary)] px-5 py-2.5
+                text-sm font-medium text-white
+                transition-opacity duration-200
+                hover:opacity-90
+              "
+            >
+              Live Demo ↗
+            </a>
+          )}
+          {sourceUrl && (
+            <a
+              href={sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex items-center justify-center gap-1.5
+                rounded-md
+                border border-[var(--color-border)]
+                bg-[var(--color-bg)] px-5 py-2.5
+                text-sm font-medium text-[var(--color-text-secondary)]
+                transition-colors duration-200
+                hover:bg-[var(--color-border)] hover:text-[var(--color-text)]
+              "
+            >
+              ⌘ View Source
+            </a>
+          )}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
