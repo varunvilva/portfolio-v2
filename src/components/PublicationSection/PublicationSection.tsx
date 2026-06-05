@@ -1,30 +1,25 @@
-import React from 'react';
 import PublicationCard from '../../subcomponents/PublicationCard/PublicationCard';
-import pubImg2 from '../../assets/image.png';
+import Container from '../Container/Container';
+import SectionTitle from '../SectionTitle/SectionTitle';
+import content from '../../data/content';
+import { resolveImage } from '../../data/assets';
 
-const PublicationSection: React.FC = () => {
-  // You can move this to a separate file if needed
-const publications = [
-  {
-    title: "Visualizing Dynamics of Federated Medical Models via Conversational Memory Elements",
-    imageUrl: pubImg2,
-    imageAlt: "Visualizing Dynamics of Federated Medical Models via Conversational Memory Elements",
-    liveUrl: "https://link.springer.com/chapter/10.1007/978-3-031-78198-8_9?"
-  }
-  // Add more projects here
-];
-
+const PublicationSection = () => {
   return (
-    <section id="publication" className="publication-section" style={{marginBottom:"4rem"}}>
-      <h2>Publications</h2>
-
-      {publications.map((publication, index) => (
-        <PublicationCard
-          key={index}
-          {...publication}
-        />
-      ))}
-    </section>
+    <Container as="section" id="publication" className="mb-16">
+      <SectionTitle>Publications</SectionTitle>
+      <div className="flex flex-col gap-8">
+        {content.publications.map((p) => (
+          <PublicationCard
+            key={p.title}
+            title={p.title}
+            imageUrl={resolveImage(p.image)}
+            imageAlt={p.imageAlt}
+            liveUrl={p.liveUrl}
+          />
+        ))}
+      </div>
+    </Container>
   );
 };
 

@@ -1,0 +1,247 @@
+{
+  "site": {
+    "title": "Varun Vilvadrinath - Portfolio",
+    "url": "https://varunvilva.space",
+    "author": "Varun Vilvadrinath",
+    "description": "Varun Vilvadrinath is a passionate software engineer and full stack developer with expertise in React, Node.js, and modern web technologies. View my projects, experience, and achievements.",
+    "shortDescription": "Passionate software engineer with expertise in React, Node.js, and modern web technologies. View my projects and experience.",
+    "twitterDescription": "Full stack developer specializing in React, Node.js, and modern web technologies.",
+    "keywords": "Varun Vilvadrinath, Varun Vilva, Vilvadrinath, Varun Vilvadrinath Portfolio, Varun Vilvadrinath Projects, Varun Vilvadrinath Experience, Varun Vilvadrinath Achievements",
+    "ogTitle": "Varun Vilvadrinath - Software Engineer & Full Stack Developer Portfolio",
+    "twitterTitle": "Varun Vilvadrinath - Software Engineer Portfolio"
+  },
+  "hero": {
+    "name": "Varun Vilvadrinath",
+    "introPrefix": "I am a dev at ",
+    "currentCompany": {
+      "name": "Kickdrum",
+      "url": "https://www.kickdrum.com/"
+    },
+    "tagline": ". My passion is building simple, beautiful solutions (be it any domain).",
+    "ctaPrompt": "Want to see what I've built? ",
+    "ctaLabel": "View Projects",
+    "ctaTargetId": "projects"
+  },
+  "sections": [
+    { "id": "projects", "label": "Projects" },
+    { "id": "publication", "label": "Publications" },
+    { "id": "experience", "label": "Experiences" },
+    { "id": "achievements", "label": "Achievements" },
+    { "id": "certifications", "label": "Certifications" },
+    { "id": "contact", "label": "Contact" }
+  ],
+  "projects": [
+    {
+      "title": "ISRO Safe Ship Navigation",
+      "description": "Collaborated with VNIT Nagpur to build the backend for the Safe Ship Navigation (SSN) project using Python and Flask. I was responsible for architecting and implementing core backend functionalities from the ground up, including task queuing with Celery, advanced routing logic using the A* algorithm, efficient caching strategies for performance optimization, comprehensive error handling, and monitoring tools for system reliability. The system was designed for scalability, robustness, and real-time maritime navigation assistance.",
+      "image": "ship3.jpg",
+      "imageAlt": "ISRO SSN project",
+      "technologies": ["Flask", "Fast-API", "Celery", "Redis"],
+      "liveUrl": "",
+      "sourceUrl": ""
+    },
+    {
+      "title": "Notification Microservice (Go + Kafka)",
+      "description": "Designed and developed a scalable notification microservice in Go, leveraging Apache Kafka for asynchronous event streaming. The service supports multi-channel notifications including email, SMS, and push, with built-in support for retries, monitoring, and message acknowledgment. Integrated Kafka consumer-producer patterns and built the core logic from scratch to ensure high throughput and fault tolerance.",
+      "image": "kafka2.png",
+      "imageAlt": "Go Kafka Notification Microservice",
+      "technologies": ["Go", "Kafka", "PostgreSQL", "Docker", "Goroutines"],
+      "liveUrl": "",
+      "sourceUrl": "https://github.com/varunvilva/NotificationGoKafka"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Visualizing Dynamics of Federated Medical Models via Conversational Memory Elements",
+      "image": "image.png",
+      "imageAlt": "Visualizing Dynamics of Federated Medical Models via Conversational Memory Elements",
+      "liveUrl": "https://link.springer.com/chapter/10.1007/978-3-031-78198-8_9"
+    }
+  ],
+  "experiences": [
+    {
+      "company": "Kickdrum",
+      "location": "Bengaluru, India",
+      "year": "Jan 2025- Present",
+      "experience": "Gained hands-on experience across the full stack — including React with TypeScript for frontend development, Java for backend services, and various AWS services for deployment and scalability. Also explored the data engineering domain through practical exposure. As a key project, developed a full-featured hotel management system comprising both client and admin portals, with fault tolerance and scalability at the core of the system's design. Emphasized clean architecture, modular components, and robust API integration to support real-world operational needs.",
+      "image": "kickdrum2.png",
+      "imageAlt": "Kickdrum company logo"
+    },
+    {
+      "company": "Jio Platforms Pvt Ltd",
+      "location": "Mumbai, India",
+      "year": "May 2024 - Aug 2024",
+      "experience": "Designed and implemented a robust notification microservice from the ground up using FastAPI and Azure EventHub, enabling seamless communication across multiple internal applications. The system supports scalable, event-driven architecture and ensures high reliability through custom failure-handling mechanisms and retry logic. Successfully integrated third-party messaging providers such as Twilio and Gupshup to enable multi-channel notifications including SMS and WhatsApp. The service was built with scalability, modularity, and real-time delivery in mind.",
+      "image": "jio.webp",
+      "imageAlt": "Jio Platforms company logo"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Google: Build For Bharat",
+      "year": "May 2024",
+      "topic": "Shelfie: Catalogue Digization",
+      "achievement": "Runner Up"
+    },
+    {
+      "title": "Samsung Solve for Tomorrow Hackathon",
+      "year": "Jul 2024",
+      "topic": "Sustainable Startup Ideas",
+      "achievement": "Top 10 in North Indian Zone"
+    },
+    {
+      "title": "Google GenAI Exchange Hackathon",
+      "year": "Oct 2024",
+      "topic": "Arthik Setu",
+      "achievement": "First Place"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "AWS Data Engineering Associate",
+      "year": "Jul 2025",
+      "description": "Secured a 100% score (1000/1000) in the AWS Data Engineering Associate certification exam, demonstrating proficiency in data engineering concepts and AWS services.",
+      "certLink": "https://www.credly.com/badges/b06d9f14-dfdb-4c33-a4d4-76f545ebba5d/public_url",
+      "image": "DEA.png"
+    }
+  ],
+  "contact": {
+    "heading": "Get In Touch",
+    "subheading": "Let's connect and discuss opportunities or collaborations",
+    "links": [
+      {
+        "type": "email",
+        "href": "mailto:varunvilva1208@gmail.com",
+        "label": "Email",
+        "value": "varunvilva1208@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "href": "https://linkedin.com/in/varunvilva",
+        "label": "LinkedIn",
+        "value": "Connect with me"
+      },
+      {
+        "type": "github",
+        "href": "https://github.com/varunvilva",
+        "label": "GitHub",
+        "value": "View my projects"
+      }
+    ]
+  },
+  "footer": {
+    "author": "Varun Vilvadrinath"
+  },
+  "terminal": {
+    "prompt": {
+      "user": "varun",
+      "host": "portfolio"
+    },
+    "static": {
+      "lines": [
+        {
+          "command": "Varun.currentLocation",
+          "out": { "kind": "string", "value": "Bengaluru, KA" }
+        },
+        {
+          "command": "Varun.contactInfo",
+          "out": {
+            "kind": "mixed",
+            "parts": [
+              { "type": "text", "value": "\"" },
+              { "type": "link", "href": "mailto:varunvilva1208@gmail.com", "label": "varunvilva1208@gmail.com" },
+              { "type": "text", "value": "\", \"" },
+              { "type": "link", "href": "https://linkedin.com/in/varunvilva", "label": "LinkedIn", "external": true },
+              { "type": "text", "value": "\", \"" },
+              { "type": "link", "href": "https://github.com/varunvilva", "label": "github", "external": true },
+              { "type": "text", "value": "\"" }
+            ]
+          }
+        },
+        {
+          "command": "Varun.resume",
+          "out": {
+            "kind": "mixed",
+            "parts": [
+              { "type": "link", "href": "/VarunVilvadrinath_Resume.pdf", "label": "\"varunvilva_resume.pdf\"", "external": true }
+            ]
+          }
+        },
+        {
+          "command": "Varun.interests",
+          "out": {
+            "kind": "array",
+            "values": ["reading", "working out", "video games", "watching movies/series"]
+          }
+        },
+        {
+          "command": "Varun.education",
+          "out": {
+            "kind": "array",
+            "values": [
+              "Computer Science & Engineering, IIIT Vadodara",
+              "B.Sc. Data Science and Programming, IIT Madras"
+            ]
+          }
+        },
+        {
+          "command": "Varun.domains",
+          "out": {
+            "kind": "array",
+            "values": [
+              "Software Development",
+              "Data Engineering",
+              "Data Science",
+              "Machine Learning & Artificial Intelligence",
+              "Devops (AWS)"
+            ]
+          }
+        },
+        {
+          "command": "Varun.skills",
+          "out": {
+            "kind": "array",
+            "values": ["Java - SpringBoot", "NodeJs", "Python", "React", "Redux", "Flask", "git", "go", "kafka", "AWS", "Docker"]
+          }
+        }
+      ]
+    },
+    "interactive": {
+      "bannerTitle": "varun.sh — interactive portfolio shell",
+      "bannerHints": [
+        { "type": "text", "value": "Try " },
+        { "type": "cmd", "value": "help" },
+        { "type": "text", "value": " for a list of commands. Or jump in: " },
+        { "type": "cmd", "value": "ls" },
+        { "type": "text", "value": ", " },
+        { "type": "cmd", "value": "cat about.txt" },
+        { "type": "text", "value": ", " },
+        { "type": "cmd", "value": "cd projects" },
+        { "type": "text", "value": "." }
+      ],
+      "whoami": "varun — software engineer @ Kickdrum, Bengaluru",
+      "about": {
+        "bio": "Software engineer based in Bengaluru, India.\n\nCurrently at Kickdrum building backends, data systems, and the occasional\nthoughtful UI. Previously interned at Jio Platforms on event-driven\nnotification infrastructure.\n\nComfortable across the stack — Go, Java/Spring, Python, React, Kafka, AWS.\nQuietly opinionated about clean architecture and observable systems."
+      },
+      "contactLines": [
+        { "label": "email", "href": "mailto:varunvilva1208@gmail.com", "displayHref": "varunvilva1208@gmail.com" },
+        { "label": "linkedin", "href": "https://linkedin.com/in/varunvilva", "displayHref": "linkedin.com/in/varunvilva", "external": true },
+        { "label": "github", "href": "https://github.com/varunvilva", "displayHref": "github.com/varunvilva", "external": true }
+      ],
+      "skills": "Languages       Go · Java · Python · TypeScript · SQL\nFrameworks      Spring Boot · FastAPI · React · Node.js · Flask\nData & Streams  Apache Kafka · PostgreSQL · Redis\nCloud & DevOps  AWS (DEA certified) · Docker · Git",
+      "interests": ["reading", "singing", "working out", "video games", "films & series"],
+      "domains": ["Software Development", "Data Engineering", "Machine Learning & AI", "DevOps (AWS)"],
+      "projectsText": "ISRO Safe Ship Navigation\n─────────────────────────\nBackend collaboration with VNIT Nagpur. Python + Flask.\n  · Task queuing with Celery\n  · A* routing\n  · Caching for performance\n  · Comprehensive error handling\n  · Monitoring for reliability\nDesigned for real-time maritime navigation at scale.\n\nNotification Microservice (Go + Kafka)\n──────────────────────────────────────\nAsync event streaming with Apache Kafka.\n  · Multi-channel delivery — email, SMS, push\n  · Retries, monitoring, message ack semantics\n  · Consumer-producer patterns built from scratch\nSource: ",
+      "projectsSourceLink": {
+        "href": "https://github.com/varunvilva/NotificationGoKafka",
+        "label": "github.com/varunvilva/NotificationGoKafka"
+      },
+      "experienceText": "Kickdrum  ·  Bengaluru, India  ·  Jan 2025 — Present\n────────────────────────────────────────────────────\nFull stack: React + TypeScript, Java backends, AWS.\nSome data engineering exposure.\nCurrently leading a hotel management system (client + admin portals),\ndesigned for fault-tolerance and scale.\n\nJio Platforms  ·  Mumbai, India  ·  May — Aug 2024\n──────────────────────────────────────────────────\nBuilt a notification microservice from scratch.\nFastAPI + Azure EventHub. Event-driven architecture with custom\nfailure-handling and retry logic.\nIntegrated Twilio + Gupshup for SMS / WhatsApp delivery.",
+      "educationText": "B.Tech Computer Science & Engineering\nIIIT Vadodara\n\nB.Sc. Data Science and Programming\nIIT Madras",
+      "resume": {
+        "url": "/VarunVilvadrinath_Resume.pdf",
+        "description": "PDF document — opens in a new tab"
+      }
+    }
+  }
+}
