@@ -9,6 +9,7 @@ import {
   type FsNode,
   type Path,
 } from './filesystem';
+import content from '../../data/content';
 
 /* ── Public types ───────────────────────────────────────────────────────── */
 
@@ -214,7 +215,7 @@ const pwd: Command = (_, ctx) => ({
 });
 
 const whoami: Command = () => ({
-  output: <span className="text-[var(--color-terminal-text)]">varun — software engineer @ Kickdrum, Bengaluru</span>,
+  output: <span className="text-[var(--color-terminal-text)]">{content.terminal.interactive.whoami}</span>,
 });
 
 const clear: Command = () => ({ output: null, clear: true });

@@ -1,3 +1,5 @@
+import { CARD_BASE_CLASS } from '../cardStyles';
+
 interface PublicationCardProps {
   title: string;
   imageUrl: string;
@@ -7,17 +9,7 @@ interface PublicationCardProps {
 
 const PublicationCard = ({ title, imageUrl, imageAlt, liveUrl }: PublicationCardProps) => {
   return (
-    <article
-      className="
-        flex flex-col md:flex-row
-        overflow-hidden
-        rounded-xl
-        bg-[var(--color-surface)]
-        shadow-[0_4px_15px_var(--color-shadow)]
-        transition-all duration-300
-        hover:-translate-y-1 hover:shadow-[0_8px_25px_var(--color-shadow)]
-      "
-    >
+    <article className={`flex flex-col md:flex-row ${CARD_BASE_CLASS}`}>
       <div className="flex h-56 w-full items-center justify-center bg-[var(--color-surface)] md:h-auto md:w-2/5">
         <img
           src={imageUrl}
@@ -47,7 +39,7 @@ const PublicationCard = ({ title, imageUrl, imageAlt, liveUrl }: PublicationCard
                 hover:opacity-90
               "
             >
-              Visit Site ↗
+              Visit Site
             </a>
           </div>
         )}

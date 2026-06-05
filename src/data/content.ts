@@ -1,166 +1,184 @@
+import { z } from 'zod';
 import raw from './content.json';
 
-export interface NavItem {
-  id: string;
-  label: string;
-}
+/* ── Schemas ────────────────────────────────────────────────────────────── */
 
-export interface CurrentCompany {
-  name: string;
-  url: string;
-}
+const SiteSchema = z.object({
+  title: z.string(),
+  url: z.string(),
+  author: z.string(),
+  description: z.string(),
+  shortDescription: z.string(),
+  twitterDescription: z.string(),
+  keywords: z.string(),
+  ogTitle: z.string(),
+  twitterTitle: z.string(),
+});
 
-export interface Hero {
-  name: string;
-  introPrefix: string;
-  currentCompany: CurrentCompany;
-  tagline: string;
-  ctaPrompt: string;
-  ctaLabel: string;
-  ctaTargetId: string;
-}
+const HeroSchema = z.object({
+  name: z.string(),
+  introPrefix: z.string(),
+  currentCompany: z.object({ name: z.string(), url: z.string() }),
+  tagline: z.string(),
+  ctaPrompt: z.string(),
+  ctaLabel: z.string(),
+  ctaTargetId: z.string(),
+});
 
-export interface Project {
-  title: string;
-  description: string;
-  image: string;
-  imageAlt: string;
-  technologies: readonly string[];
-  liveUrl: string;
-  sourceUrl: string;
-}
+const SectionSchema = z.object({ id: z.string(), label: z.string() });
 
-export interface Publication {
-  title: string;
-  image: string;
-  imageAlt: string;
-  liveUrl: string;
-}
+const ProjectSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  image: z.string(),
+  imageAlt: z.string(),
+  technologies: z.array(z.string()),
+  liveUrl: z.string(),
+  sourceUrl: z.string(),
+});
 
-export interface Experience {
-  company: string;
-  location: string;
-  year: string;
-  experience: string;
-  image: string;
-  imageAlt: string;
-}
+const PublicationSchema = z.object({
+  title: z.string(),
+  image: z.string(),
+  imageAlt: z.string(),
+  liveUrl: z.string(),
+});
 
-export interface Achievement {
-  title: string;
-  year: string;
-  topic: string;
-  achievement: string;
-}
+const ExperienceSchema = z.object({
+  company: z.string(),
+  location: z.string(),
+  year: z.string(),
+  experience: z.string(),
+  image: z.string(),
+  imageAlt: z.string(),
+});
 
-export interface Certification {
-  title: string;
-  year: string;
-  description: string;
-  certLink: string;
-  image: string;
-}
+const AchievementSchema = z.object({
+  title: z.string(),
+  year: z.string(),
+  topic: z.string(),
+  achievement: z.string(),
+});
 
-export type ContactLinkType = 'email' | 'linkedin' | 'github';
-export interface ContactLink {
-  type: ContactLinkType;
-  href: string;
-  label: string;
-  value: string;
-}
+const CertificationSchema = z.object({
+  title: z.string(),
+  year: z.string(),
+  description: z.string(),
+  certLink: z.string(),
+  image: z.string(),
+});
 
-export interface Contact {
-  heading: string;
-  subheading: string;
-  links: readonly ContactLink[];
-}
+const ContactLinkTypeSchema = z.enum(['email', 'linkedin', 'github']);
+const ContactLinkSchema = z.object({
+  type: ContactLinkTypeSchema,
+  href: z.string(),
+  label: z.string(),
+  value: z.string(),
+});
 
-export interface Site {
-  title: string;
-  url: string;
-  author: string;
-  description: string;
-  shortDescription: string;
-  twitterDescription: string;
-  keywords: string;
-  ogTitle: string;
-  twitterTitle: string;
-}
+const ContactSchema = z.object({
+  heading: z.string(),
+  subheading: z.string(),
+  links: z.array(ContactLinkSchema),
+});
 
-export interface Footer {
-  author: string;
-}
+const FooterSchema = z.object({ author: z.string() });
 
-/* ── Terminal types ─────────────────────────────────────────────────────── */
+/* ── Terminal schemas ───────────────────────────────────────────────────── */
 
-export type StaticTerminalOutput =
-  | { kind: 'string'; value: string }
-  | { kind: 'array'; values: string[] }
-  | {
-      kind: 'mixed';
-      parts: Array<
-        | { type: 'text'; value: string }
-        | { type: 'link'; href: string; label: string; external?: boolean }
-      >;
-    };
+const StaticTerminalOutputSchema = z.discriminatedUnion('kind', [
+  z.object({ kind: z.literal('string'), value: z.string() }),
+  z.object({ kind: z.literal('array'), values: z.array(z.string()) }),
+  z.object({
+    kind: z.literal('mixed'),
+    parts: z.array(
+      z.discriminatedUnion('type', [
+        z.object({ type: z.literal('text'), value: z.string() }),
+        z.object({
+          type: z.literal('link'),
+          href: z.string(),
+          label: z.string(),
+          external: z.boolean().optional(),
+        }),
+      ]),
+    ),
+  }),
+]);
 
-export interface StaticTerminalLine {
-  command: string;
-  out: StaticTerminalOutput;
-}
+const StaticTerminalLineSchema = z.object({
+  command: z.string(),
+  out: StaticTerminalOutputSchema,
+});
 
-export type BannerHintPart =
-  | { type: 'text'; value: string }
-  | { type: 'cmd'; value: string };
+const BannerHintPartSchema = z.discriminatedUnion('type', [
+  z.object({ type: z.literal('text'), value: z.string() }),
+  z.object({ type: z.literal('cmd'), value: z.string() }),
+]);
 
-export interface InteractiveContactLine {
-  label: string;
-  href: string;
-  displayHref: string;
-  external?: boolean;
-}
+const InteractiveContactLineSchema = z.object({
+  label: z.string(),
+  href: z.string(),
+  displayHref: z.string(),
+  external: z.boolean().optional(),
+});
 
-export interface TerminalResume {
-  url: string;
-  description: string;
-}
+const TerminalResumeSchema = z.object({ url: z.string(), description: z.string() });
 
-export interface InteractiveTerminal {
-  bannerTitle: string;
-  bannerHints: readonly BannerHintPart[];
-  whoami: string;
-  about: { bio: string };
-  contactLines: readonly InteractiveContactLine[];
-  skills: string;
-  interests: readonly string[];
-  domains: readonly string[];
-  projectsText: string;
-  projectsSourceLink: { href: string; label: string };
-  experienceText: string;
-  educationText: string;
-  resume: TerminalResume;
-}
+const InteractiveTerminalSchema = z.object({
+  bannerTitle: z.string(),
+  bannerHints: z.array(BannerHintPartSchema),
+  whoami: z.string(),
+  about: z.object({ bio: z.string() }),
+  contactLines: z.array(InteractiveContactLineSchema),
+  skills: z.string(),
+  interests: z.array(z.string()),
+  domains: z.array(z.string()),
+  projectsText: z.string(),
+  projectsSourceLink: z.object({ href: z.string(), label: z.string() }),
+  experienceText: z.string(),
+  educationText: z.string(),
+  resume: TerminalResumeSchema,
+});
 
-export interface Terminal {
-  prompt: { user: string; host: string };
-  static: { lines: readonly StaticTerminalLine[] };
-  interactive: InteractiveTerminal;
-}
+const TerminalSchema = z.object({
+  prompt: z.object({ user: z.string(), host: z.string() }),
+  static: z.object({ lines: z.array(StaticTerminalLineSchema) }),
+  interactive: InteractiveTerminalSchema,
+});
 
-export interface Content {
-  site: Site;
-  hero: Hero;
-  navbar: readonly NavItem[];
-  projects: readonly Project[];
-  publications: readonly Publication[];
-  experiences: readonly Experience[];
-  achievements: readonly Achievement[];
-  certifications: readonly Certification[];
-  contact: Contact;
-  footer: Footer;
-  terminal: Terminal;
-}
+const ContentSchema = z.object({
+  site: SiteSchema,
+  hero: HeroSchema,
+  sections: z.array(SectionSchema),
+  projects: z.array(ProjectSchema),
+  publications: z.array(PublicationSchema),
+  experiences: z.array(ExperienceSchema),
+  achievements: z.array(AchievementSchema),
+  certifications: z.array(CertificationSchema),
+  contact: ContactSchema,
+  footer: FooterSchema,
+  terminal: TerminalSchema,
+});
 
-const content = raw as unknown as Content;
+/* ── Inferred types ─────────────────────────────────────────────────────── */
+
+export type Site = z.infer<typeof SiteSchema>;
+export type Hero = z.infer<typeof HeroSchema>;
+export type Section = z.infer<typeof SectionSchema>;
+export type Project = z.infer<typeof ProjectSchema>;
+export type Publication = z.infer<typeof PublicationSchema>;
+export type Experience = z.infer<typeof ExperienceSchema>;
+export type Achievement = z.infer<typeof AchievementSchema>;
+export type Certification = z.infer<typeof CertificationSchema>;
+export type ContactLinkType = z.infer<typeof ContactLinkTypeSchema>;
+export type ContactLink = z.infer<typeof ContactLinkSchema>;
+export type Contact = z.infer<typeof ContactSchema>;
+export type Footer = z.infer<typeof FooterSchema>;
+export type StaticTerminalOutput = z.infer<typeof StaticTerminalOutputSchema>;
+export type Content = z.infer<typeof ContentSchema>;
+
+/* ── Parse at module init — fails loud on JSON drift ───────────────────── */
+
+const content = ContentSchema.parse(raw);
 
 export default content;

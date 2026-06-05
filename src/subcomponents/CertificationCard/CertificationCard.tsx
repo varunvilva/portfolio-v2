@@ -93,8 +93,8 @@ const CertificationCard = ({
               bg-[var(--color-primary)]
               px-5 py-2
               text-sm font-medium text-white
-              transition-all duration-200
-              hover:-translate-y-px hover:opacity-90
+              transition-opacity duration-200
+              hover:opacity-90
             "
           >
             View Certification

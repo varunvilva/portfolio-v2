@@ -132,13 +132,16 @@ const { interactive } = content.terminal;
 
 const aboutInfo: FsFile = { type: 'file', content: <About /> };
 
+const contactLabelWidth =
+  Math.max(...interactive.contactLines.map((c) => c.label.length)) + 2;
+
 const contactInfo: FsFile = {
   type: 'file',
   content: (
     <pre className="whitespace-pre-wrap font-[inherit] text-[var(--color-terminal-text)]">
       {interactive.contactLines.map((c, i) => (
         <span key={c.label}>
-          {c.label.padEnd(10, ' ')}
+          {c.label.padEnd(contactLabelWidth, ' ')}
           {link(c.href, c.displayHref, c.external)}
           {i < interactive.contactLines.length - 1 ? '\n' : ''}
         </span>

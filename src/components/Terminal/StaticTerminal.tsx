@@ -2,7 +2,6 @@ import content from '../../data/content';
 import type { StaticTerminalOutput } from '../../data/content';
 
 const stringClass = 'text-[var(--color-terminal-string)]';
-const bracketClass = 'text-[var(--color-terminal-string)]';
 const linkClass =
   'text-[var(--color-terminal-link)] no-underline hover:underline transition-colors';
 
@@ -14,25 +13,25 @@ const renderOutput = (out: StaticTerminalOutput) => {
   if (out.kind === 'array') {
     return (
       <>
-        <span className={bracketClass}>[</span>
+        <span className={stringClass}>[</span>
         {out.values.map((v, i) => (
           <span key={v}>
             <span className={stringClass}>"{v}"</span>
-            {i < out.values.length - 1 && <span className={bracketClass}>, </span>}
+            {i < out.values.length - 1 && <span className={stringClass}>, </span>}
           </span>
         ))}
-        <span className={bracketClass}>]</span>
+        <span className={stringClass}>]</span>
       </>
     );
   }
 
   return (
     <>
-      <span className={bracketClass}>[</span>
+      <span className={stringClass}>[</span>
       {out.parts.map((p, i) => {
         if (p.type === 'text') {
           return (
-            <span key={i} className={bracketClass}>
+            <span key={i} className={stringClass}>
               {p.value}
             </span>
           );
@@ -49,7 +48,7 @@ const renderOutput = (out: StaticTerminalOutput) => {
           </a>
         );
       })}
-      <span className={bracketClass}>]</span>
+      <span className={stringClass}>]</span>
     </>
   );
 };

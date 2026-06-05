@@ -1,3 +1,5 @@
+import { CARD_BASE_CLASS } from '../cardStyles';
+
 interface ExperienceCardProps {
   companyName: string;
   year: string;
@@ -62,17 +64,7 @@ const ExperienceCard = ({
   companyUrl,
 }: ExperienceCardProps) => {
   return (
-    <article
-      className="
-        flex flex-col md:flex-row
-        overflow-hidden
-        rounded-xl
-        bg-[var(--color-surface)]
-        shadow-[0_4px_15px_var(--color-shadow)]
-        transition-all duration-300
-        hover:-translate-y-1 hover:shadow-[0_8px_25px_var(--color-shadow)]
-      "
-    >
+    <article className={`flex flex-col md:flex-row ${CARD_BASE_CLASS}`}>
       <div className="relative h-44 w-full flex-shrink-0 sm:h-52 md:h-auto md:w-1/2">
         <img
           src={imageUrl}
@@ -161,7 +153,7 @@ const ExperienceCard = ({
                 hover:opacity-90
               "
             >
-              Visit Company ↗
+              Visit Company
             </a>
           </div>
         )}

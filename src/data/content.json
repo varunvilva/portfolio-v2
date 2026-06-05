@@ -22,7 +22,7 @@
     "ctaLabel": "View Projects",
     "ctaTargetId": "projects"
   },
-  "navbar": [
+  "sections": [
     { "id": "projects", "label": "Projects" },
     { "id": "publication", "label": "Publications" },
     { "id": "experience", "label": "Experiences" },
@@ -34,7 +34,7 @@
     {
       "title": "ISRO Safe Ship Navigation",
       "description": "Collaborated with VNIT Nagpur to build the backend for the Safe Ship Navigation (SSN) project using Python and Flask. I was responsible for architecting and implementing core backend functionalities from the ground up, including task queuing with Celery, advanced routing logic using the A* algorithm, efficient caching strategies for performance optimization, comprehensive error handling, and monitoring tools for system reliability. The system was designed for scalability, robustness, and real-time maritime navigation assistance.",
-      "image": "ship",
+      "image": "ship3.jpg",
       "imageAlt": "ISRO SSN project",
       "technologies": ["Flask", "Fast-API", "Celery", "Redis"],
       "liveUrl": "",
@@ -43,7 +43,7 @@
     {
       "title": "Notification Microservice (Go + Kafka)",
       "description": "Designed and developed a scalable notification microservice in Go, leveraging Apache Kafka for asynchronous event streaming. The service supports multi-channel notifications including email, SMS, and push, with built-in support for retries, monitoring, and message acknowledgment. Integrated Kafka consumer-producer patterns and built the core logic from scratch to ensure high throughput and fault tolerance.",
-      "image": "kafka",
+      "image": "kafka2.png",
       "imageAlt": "Go Kafka Notification Microservice",
       "technologies": ["Go", "Kafka", "PostgreSQL", "Docker", "Goroutines"],
       "liveUrl": "",
@@ -53,7 +53,7 @@
   "publications": [
     {
       "title": "Visualizing Dynamics of Federated Medical Models via Conversational Memory Elements",
-      "image": "publication",
+      "image": "image.png",
       "imageAlt": "Visualizing Dynamics of Federated Medical Models via Conversational Memory Elements",
       "liveUrl": "https://link.springer.com/chapter/10.1007/978-3-031-78198-8_9"
     }
@@ -64,7 +64,7 @@
       "location": "Bengaluru, India",
       "year": "Jan 2025- Present",
       "experience": "Gained hands-on experience across the full stack — including React with TypeScript for frontend development, Java for backend services, and various AWS services for deployment and scalability. Also explored the data engineering domain through practical exposure. As a key project, developed a full-featured hotel management system comprising both client and admin portals, with fault tolerance and scalability at the core of the system's design. Emphasized clean architecture, modular components, and robust API integration to support real-world operational needs.",
-      "image": "kickdrum",
+      "image": "kickdrum2.png",
       "imageAlt": "Kickdrum company logo"
     },
     {
@@ -72,7 +72,7 @@
       "location": "Mumbai, India",
       "year": "May 2024 - Aug 2024",
       "experience": "Designed and implemented a robust notification microservice from the ground up using FastAPI and Azure EventHub, enabling seamless communication across multiple internal applications. The system supports scalable, event-driven architecture and ensures high reliability through custom failure-handling mechanisms and retry logic. Successfully integrated third-party messaging providers such as Twilio and Gupshup to enable multi-channel notifications including SMS and WhatsApp. The service was built with scalability, modularity, and real-time delivery in mind.",
-      "image": "jio",
+      "image": "jio.webp",
       "imageAlt": "Jio Platforms company logo"
     }
   ],
@@ -102,7 +102,7 @@
       "year": "Jul 2025",
       "description": "Secured a 100% score (1000/1000) in the AWS Data Engineering Associate certification exam, demonstrating proficiency in data engineering concepts and AWS services.",
       "certLink": "https://www.credly.com/badges/b06d9f14-dfdb-4c33-a4d4-76f545ebba5d/public_url",
-      "image": "dea"
+      "image": "DEA.png"
     }
   ],
   "contact": {

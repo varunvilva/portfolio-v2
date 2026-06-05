@@ -1,3 +1,4 @@
+import type { ComponentType } from 'react';
 import './App.css';
 import AchievementSection from './components/AchievementSection/AchievementSection';
 import ContactSection from './components/ContactSection/ContactSection';
@@ -10,6 +11,16 @@ import PublicationSection from './components/PublicationSection/PublicationSecti
 import Terminal from './components/Terminal/Terminal';
 import CertificationsSection from './components/CertificationsSection/CertificationsSection';
 import { ThemeProvider } from './context/ThemeContext';
+import content from './data/content';
+
+const sectionRegistry: Record<string, ComponentType> = {
+  projects: ProjectsSection,
+  publication: PublicationSection,
+  experience: ExperienceSection,
+  achievements: AchievementSection,
+  certifications: CertificationsSection,
+  contact: ContactSection,
+};
 
 function App() {
   return (
@@ -19,12 +30,15 @@ function App() {
         <main className="flex-1">
           <Hero />
           <Terminal />
-          <ProjectsSection />
-          <PublicationSection />
-          <ExperienceSection />
-          <AchievementSection />
-          <CertificationsSection />
-          <ContactSection />
+          {content.sections.map(({ id }) => {
+            const Section = sectionRegistry[id];
+            if (!Section) {
+              throw new Error(
+                `No component registered for section id "${id}". Add it to sectionRegistry in App.tsx.`,
+              );
+            }
+            return <Section key={id} />;
+          })}
         </main>
         <Footer />
       </div>

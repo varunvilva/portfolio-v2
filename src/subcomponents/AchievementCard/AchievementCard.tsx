@@ -1,3 +1,5 @@
+import { CARD_BASE_CLASS } from '../cardStyles';
+
 interface AchievementCardProps {
   title: string;
   year: string;
@@ -8,17 +10,7 @@ interface AchievementCardProps {
 const AchievementCard = ({ title, year, topic, achievement }: AchievementCardProps) => {
   return (
     <article
-      className="
-        flex flex-col gap-4
-        overflow-hidden
-        rounded-xl
-        bg-[var(--color-surface)]
-        p-5 sm:p-6
-        shadow-[0_4px_15px_var(--color-shadow)]
-        transition-all duration-300
-        hover:-translate-y-1 hover:shadow-[0_8px_25px_var(--color-shadow)]
-        md:row-span-4 md:grid md:grid-rows-subgrid md:gap-4
-      "
+      className={`flex flex-col gap-4 p-5 sm:p-6 md:row-span-4 md:grid md:grid-rows-subgrid md:gap-4 ${CARD_BASE_CLASS}`}
     >
       {/* Row 1 — Title (defined min height, centered) */}
       <h3

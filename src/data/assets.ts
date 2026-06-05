@@ -1,21 +1,20 @@
-import dea from '../assets/DEA.png';
-import jio from '../assets/jio.webp';
-import kafka from '../assets/kafka2.png';
-import kickdrum from '../assets/kickdrum2.png';
-import publication from '../assets/image.png';
-import ship from '../assets/ship3.jpg';
+const modules = import.meta.glob('../assets/*.{png,jpg,jpeg,webp,svg,gif}', {
+  eager: true,
+  import: 'default',
+}) as Record<string, string>;
 
-export const images: Record<string, string> = {
-  dea,
-  jio,
-  kafka,
-  kickdrum,
-  publication,
-  ship,
-};
+const images: Record<string, string> = {};
+for (const [path, url] of Object.entries(modules)) {
+  const filename = path.split('/').pop();
+  if (filename) images[filename] = url;
+}
 
-export const resolveImage = (key: string): string => {
-  const url = images[key];
-  if (!url) throw new Error(`Unknown image key: "${key}". Add it to src/data/assets.ts.`);
+export const resolveImage = (filename: string): string => {
+  const url = images[filename];
+  if (!url) {
+    throw new Error(
+      `Unknown image "${filename}". Drop the file into src/assets/ and reference it by filename in content.json. Available: ${Object.keys(images).sort((a, b) => a.localeCompare(b)).join(', ')}`,
+    );
+  }
   return url;
 };

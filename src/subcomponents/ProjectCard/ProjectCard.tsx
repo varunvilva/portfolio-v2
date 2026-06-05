@@ -1,3 +1,5 @@
+import { CARD_BASE_CLASS } from '../cardStyles';
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -18,17 +20,7 @@ const ProjectCard = ({
   sourceUrl,
 }: ProjectCardProps) => {
   return (
-    <article
-      className="
-        flex flex-col md:flex-row
-        overflow-hidden
-        rounded-xl
-        bg-[var(--color-surface)]
-        shadow-[0_4px_15px_var(--color-shadow)]
-        transition-all duration-300
-        hover:-translate-y-1 hover:shadow-[0_8px_25px_var(--color-shadow)]
-      "
-    >
+    <article className={`flex flex-col md:flex-row ${CARD_BASE_CLASS}`}>
       <div className="relative h-48 w-full flex-shrink-0 sm:h-56 md:h-auto md:w-1/2">
         <img
           src={imageUrl}
@@ -81,7 +73,7 @@ const ProjectCard = ({
                 hover:opacity-90
               "
             >
-              Live Demo ↗
+              Live Demo
             </a>
           )}
           {sourceUrl && (
@@ -92,14 +84,13 @@ const ProjectCard = ({
               className="
                 inline-flex items-center justify-center gap-1.5
                 rounded-md
-                border border-[var(--color-border)]
-                bg-[var(--color-bg)] px-5 py-2.5
-                text-sm font-medium text-[var(--color-text-secondary)]
-                transition-colors duration-200
-                hover:bg-[var(--color-border)] hover:text-[var(--color-text)]
+                bg-[var(--color-primary)] px-5 py-2.5
+                text-sm font-medium text-white
+                transition-opacity duration-200
+                hover:opacity-90
               "
             >
-              ⌘ View Source
+              View Source
             </a>
           )}
         </div>
