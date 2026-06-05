@@ -68,9 +68,9 @@ const ExperienceCard = ({
         overflow-hidden
         rounded-xl
         bg-[var(--color-surface)]
-        shadow-[0_4px_20px_var(--color-shadow)]
-        transition-[transform,box-shadow,background-color] duration-300
-        hover:-translate-y-1 hover:shadow-[0_8px_30px_var(--color-shadow)]
+        shadow-[0_4px_15px_var(--color-shadow)]
+        transition-all duration-300
+        hover:-translate-y-1 hover:shadow-[0_8px_25px_var(--color-shadow)]
       "
     >
       <div className="relative h-44 w-full flex-shrink-0 sm:h-52 md:h-auto md:w-1/2">

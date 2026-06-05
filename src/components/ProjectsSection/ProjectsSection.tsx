@@ -1,39 +1,25 @@
 import ProjectCard from '../../subcomponents/ProjectCard/ProjectCard';
 import Container from '../Container/Container';
 import SectionTitle from '../SectionTitle/SectionTitle';
-import shipImage from '../../assets/ship3.jpg';
-import kafka from '../../assets/kafka2.png';
-
-const projects = [
-  {
-    title: 'ISRO Safe Ship Navigation',
-    description:
-      'Collaborated with VNIT Nagpur to build the backend for the Safe Ship Navigation (SSN) project using Python and Flask. I was responsible for architecting and implementing core backend functionalities from the ground up, including task queuing with Celery, advanced routing logic using the A* algorithm, efficient caching strategies for performance optimization, comprehensive error handling, and monitoring tools for system reliability. The system was designed for scalability, robustness, and real-time maritime navigation assistance.',
-    imageUrl: shipImage,
-    imageAlt: 'ISRO SSN project',
-    technologies: ['Flask', 'Fast-API', 'Celery', 'Redis'],
-    liveUrl: '',
-    sourceUrl: '',
-  },
-  {
-    title: 'Notification Microservice (Go + Kafka)',
-    description:
-      'Designed and developed a scalable notification microservice in Go, leveraging Apache Kafka for asynchronous event streaming. The service supports multi-channel notifications including email, SMS, and push, with built-in support for retries, monitoring, and message acknowledgment. Integrated Kafka consumer-producer patterns and built the core logic from scratch to ensure high throughput and fault tolerance.',
-    imageUrl: kafka,
-    imageAlt: 'Go Kafka Notification Microservice',
-    technologies: ['Go', 'Kafka', 'PostgreSQL', 'Docker', 'Goroutines'],
-    liveUrl: '',
-    sourceUrl: 'https://github.com/varunvilva/NotificationGoKafka',
-  },
-] as const;
+import content from '../../data/content';
+import { resolveImage } from '../../data/assets';
 
 const ProjectsSection = () => {
   return (
     <Container as="section" id="projects" className="mb-16">
       <SectionTitle>Projects</SectionTitle>
       <div className="flex flex-col gap-8">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
+        {content.projects.map((project) => (
+          <ProjectCard
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            imageUrl={resolveImage(project.image)}
+            imageAlt={project.imageAlt}
+            technologies={project.technologies}
+            liveUrl={project.liveUrl}
+            sourceUrl={project.sourceUrl}
+          />
         ))}
       </div>
     </Container>

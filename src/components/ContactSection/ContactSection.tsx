@@ -1,13 +1,8 @@
 import type { ReactNode } from 'react';
 import Container from '../Container/Container';
 import SectionTitle from '../SectionTitle/SectionTitle';
-
-interface ContactLink {
-  href: string;
-  label: string;
-  value: string;
-  icon: ReactNode;
-}
+import content from '../../data/content';
+import type { ContactLinkType } from '../../data/content';
 
 const EmailIcon = (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-full w-full">
@@ -27,40 +22,27 @@ const GitHubIcon = (
   </svg>
 );
 
-const contacts: ContactLink[] = [
-  {
-    href: 'mailto:varunvilva1208@gmail.com',
-    label: 'Email',
-    value: 'varunvilva1208@gmail.com',
-    icon: EmailIcon,
-  },
-  {
-    href: 'https://linkedin.com/in/varunvilva',
-    label: 'LinkedIn',
-    value: 'Connect with me',
-    icon: LinkedInIcon,
-  },
-  {
-    href: 'https://github.com/varunvilva',
-    label: 'GitHub',
-    value: 'View my projects',
-    icon: GitHubIcon,
-  },
-];
+const iconByType: Record<ContactLinkType, ReactNode> = {
+  email: EmailIcon,
+  linkedin: LinkedInIcon,
+  github: GitHubIcon,
+};
 
 const ContactSection = () => {
+  const { heading, subheading, links } = content.contact;
+
   return (
     <Container as="section" id="contact" className="mb-12 py-12 sm:py-16">
       <SectionTitle>Contact</SectionTitle>
 
       <div className="mx-auto text-center">
-        <h3 className="mb-4 text-2xl font-semibold text-[var(--color-text)]">Get In Touch</h3>
+        <h3 className="mb-4 text-2xl font-semibold text-[var(--color-text)]">{heading}</h3>
         <p className="mb-10 text-base leading-relaxed text-[var(--color-text-secondary)] sm:text-lg">
-          Let's connect and discuss opportunities or collaborations
+          {subheading}
         </p>
 
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
-          {contacts.map((c) => (
+          {links.map((c) => (
             <a
               key={c.label}
               href={c.href}
@@ -79,7 +61,7 @@ const ContactSection = () => {
                 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:shadow-[0_8px_25px_var(--color-shadow)]
               "
             >
-              <span className="h-10 w-10 flex-shrink-0">{c.icon}</span>
+              <span className="h-10 w-10 flex-shrink-0">{iconByType[c.type]}</span>
               <span className="flex flex-col">
                 <span className="text-base font-semibold sm:text-lg">{c.label}</span>
                 <span className="text-sm opacity-80">{c.value}</span>

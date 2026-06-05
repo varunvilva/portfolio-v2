@@ -1,5 +1,8 @@
 import Typewriter from 'typewriter-effect';
 import Container from '../Container/Container';
+import content from '../../data/content';
+
+const { hero } = content;
 
 const Hero = () => {
   const scrollTo = (id: string) => {
@@ -23,7 +26,7 @@ const Hero = () => {
         </span>
         <Typewriter
           onInit={(typewriter) => {
-            typewriter.typeString('Varun Vilvadrinath').start();
+            typewriter.typeString(hero.name).start();
           }}
           options={{
             cursor: '█',
@@ -43,21 +46,21 @@ const Hero = () => {
         "
         style={{ fontFamily: "'Inter', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif" }}
       >
-        I am a dev at{' '}
+        {hero.introPrefix}
         <a
-          href="https://www.kickdrum.com/"
+          href={hero.currentCompany.url}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[var(--color-primary)] transition-opacity duration-300 hover:opacity-80"
         >
-          Kickdrum
+          {hero.currentCompany.name}
         </a>
-        . My passion is building simple, beautiful solutions (be it any domain).
+        {hero.tagline}
         <br />
-        Want to see what I've built?{' '}
+        {hero.ctaPrompt}
         <button
           type="button"
-          onClick={() => scrollTo('projects')}
+          onClick={() => scrollTo(hero.ctaTargetId)}
           className="
             cursor-pointer
             bg-transparent
@@ -66,7 +69,7 @@ const Hero = () => {
             hover:text-[var(--color-primary-hover)] hover:opacity-80
           "
         >
-          View Projects
+          {hero.ctaLabel}
         </button>
       </p>
     </Container>

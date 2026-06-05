@@ -11,12 +11,16 @@ import {
 } from 'react';
 import { pathString, type Path } from './filesystem';
 import { getCompletions, runCommand, type CompletionMatch } from './commands';
+import content from '../../data/content';
+
+const { prompt: promptConfig, interactive } = content.terminal;
+const promptHost = `${promptConfig.user}@${promptConfig.host}`;
 
 /* ── Prompt component ───────────────────────────────────────────────────── */
 
 const Prompt = ({ path }: { path: Path }) => (
   <span className="whitespace-nowrap">
-    <span className="text-[#50fa7b]">varun@portfolio</span>
+    <span className="text-[#50fa7b]">{promptHost}</span>
     <span className="text-white">:</span>
     <span className="text-[#7dcfff]">{pathString(path)}</span>
     <span className="text-white">{' $ '}</span>
@@ -27,17 +31,16 @@ const Prompt = ({ path }: { path: Path }) => (
 
 const Banner = () => (
   <pre className="mb-4 whitespace-pre-wrap font-[inherit] text-[var(--color-terminal-text)] opacity-90">
-    {`varun.sh — interactive portfolio shell
-
-Try `}
-    <span className="text-[var(--color-terminal-string)]">help</span>
-    {' for a list of commands. Or jump in: '}
-    <span className="text-[var(--color-terminal-string)]">ls</span>
-    {', '}
-    <span className="text-[var(--color-terminal-string)]">cat about.txt</span>
-    {', '}
-    <span className="text-[var(--color-terminal-string)]">cd projects</span>
-    {'.'}
+    {`${interactive.bannerTitle}\n\n`}
+    {interactive.bannerHints.map((part, i) =>
+      part.type === 'cmd' ? (
+        <span key={i} className="text-[var(--color-terminal-string)]">
+          {part.value}
+        </span>
+      ) : (
+        <span key={i}>{part.value}</span>
+      ),
+    )}
   </pre>
 );
 

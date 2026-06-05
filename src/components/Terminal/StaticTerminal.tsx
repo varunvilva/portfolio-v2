@@ -1,92 +1,12 @@
-type LinkEntry = { href: string; label: string; external?: boolean };
-
-type Output =
-  | { kind: 'string'; value: string }
-  | { kind: 'array'; values: string[] }
-  | { kind: 'mixed'; parts: Array<{ type: 'text'; value: string } | { type: 'link'; link: LinkEntry }> };
-
-interface Line {
-  command: string;
-  out: Output;
-}
-
-const lines: Line[] = [
-  {
-    command: 'Varun.currentLocation',
-    out: { kind: 'string', value: 'Bengaluru, KA' },
-  },
-  {
-    command: 'Varun.contactInfo',
-    out: {
-      kind: 'mixed',
-      parts: [
-        { type: 'text', value: '"' },
-        { type: 'link', link: { href: 'mailto:varunvilva1208@gmail.com', label: 'varunvilva1208@gmail.com' } },
-        { type: 'text', value: '", "' },
-        { type: 'link', link: { href: 'https://linkedin.com/in/varunvilva', label: 'LinkedIn', external: true } },
-        { type: 'text', value: '", "' },
-        { type: 'link', link: { href: 'https://github.com/varunvilva', label: 'github', external: true } },
-        { type: 'text', value: '"' },
-      ],
-    },
-  },
-  {
-    command: 'Varun.resume',
-    out: {
-      kind: 'mixed',
-      parts: [
-        {
-          type: 'link',
-          link: { href: '/VarunVilvadrinath_Resume.pdf', label: '"varunvilva_resume.pdf"', external: true },
-        },
-      ],
-    },
-  },
-  {
-    command: 'Varun.interests',
-    out: {
-      kind: 'array',
-      values: ['reading', 'working out', 'video games', 'watching movies/series'],
-    },
-  },
-  {
-    command: 'Varun.education',
-    out: {
-      kind: 'array',
-      values: [
-        'Computer Science & Engineering, IIIT Vadodara',
-        'B.Sc. Data Science and Programming, IIT Madras',
-      ],
-    },
-  },
-  {
-    command: 'Varun.domains',
-    out: {
-      kind: 'array',
-      values: [
-        'Software Development',
-        'Data Engineering',
-        'Data Science',
-        'Machine Learning & Artificial Intelligence',
-        'Devops (AWS)',
-      ],
-    },
-  },
-  {
-    command: 'Varun.skills',
-    out: {
-      kind: 'array',
-      values: ['Java - SpringBoot', 'NodeJs', 'Python', 'React', 'Redux', 'Flask', 'git', 'go', 'kafka', 'AWS', 'Docker'],
-    },
-  },
-];
+import content from '../../data/content';
+import type { StaticTerminalOutput } from '../../data/content';
 
 const stringClass = 'text-[var(--color-terminal-string)]';
 const bracketClass = 'text-[var(--color-terminal-string)]';
 const linkClass =
   'text-[var(--color-terminal-link)] no-underline hover:underline transition-colors';
 
-const renderOutput = (out: Output) => {
+const renderOutput = (out: StaticTerminalOutput) => {
   if (out.kind === 'string') {
     return <span className={stringClass}>"{out.value}"</span>;
   }
@@ -120,12 +40,12 @@ const renderOutput = (out: Output) => {
         return (
           <a
             key={i}
-            href={p.link.href}
-            target={p.link.external ? '_blank' : undefined}
-            rel={p.link.external ? 'noopener noreferrer' : undefined}
+            href={p.href}
+            target={p.external ? '_blank' : undefined}
+            rel={p.external ? 'noopener noreferrer' : undefined}
             className={linkClass}
           >
-            {p.link.label}
+            {p.label}
           </a>
         );
       })}
@@ -135,6 +55,8 @@ const renderOutput = (out: Output) => {
 };
 
 const StaticTerminal = () => {
+  const lines = content.terminal.static.lines;
+
   return (
     <div className="overflow-hidden rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
       <div className="flex items-center bg-[var(--color-terminal-header)] px-4 py-3">

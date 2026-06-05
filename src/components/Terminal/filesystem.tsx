@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import asciiArt from '../../assets/ascii-art.txt?raw';
+import content from '../../data/content';
 
 /* ── Types ──────────────────────────────────────────────────────────────── */
 
@@ -120,19 +121,14 @@ const About = () => (
       {asciiArt.replace(/\s+$/g, '')}
     </pre>
     <pre className="whitespace-pre-wrap font-[inherit] text-[var(--color-terminal-text)]">
-{`Software engineer based in Bengaluru, India.
-
-Currently at Kickdrum building backends, data systems, and the occasional
-thoughtful UI. Previously interned at Jio Platforms on event-driven
-notification infrastructure.
-
-Comfortable across the stack — Go, Java/Spring, Python, React, Kafka, AWS.
-Quietly opinionated about clean architecture and observable systems.`}
+      {content.terminal.interactive.about.bio}
     </pre>
   </>
 );
 
 /* ── Filesystem tree ────────────────────────────────────────────────────── */
+
+const { interactive } = content.terminal;
 
 const aboutInfo: FsFile = { type: 'file', content: <About /> };
 
@@ -140,93 +136,56 @@ const contactInfo: FsFile = {
   type: 'file',
   content: (
     <pre className="whitespace-pre-wrap font-[inherit] text-[var(--color-terminal-text)]">
-      {'email     '}{link('mailto:varunvilva1208@gmail.com', 'varunvilva1208@gmail.com')}{'\n'}
-      {'linkedin  '}{link('https://linkedin.com/in/varunvilva', 'linkedin.com/in/varunvilva', true)}{'\n'}
-      {'github    '}{link('https://github.com/varunvilva', 'github.com/varunvilva', true)}
+      {interactive.contactLines.map((c, i) => (
+        <span key={c.label}>
+          {c.label.padEnd(10, ' ')}
+          {link(c.href, c.displayHref, c.external)}
+          {i < interactive.contactLines.length - 1 ? '\n' : ''}
+        </span>
+      ))}
     </pre>
   ),
 };
 
 const skillsInfo: FsFile = {
   type: 'file',
-  content: `Languages       Go · Java · Python · TypeScript · SQL
-Frameworks      Spring Boot · FastAPI · React · Node.js · Flask
-Data & Streams  Apache Kafka · PostgreSQL · Redis
-Cloud & DevOps  AWS (DEA certified) · Docker · Git`,
+  content: interactive.skills,
 };
 
 const interestsInfo: FsFile = {
   type: 'file',
-  content: `- reading
-- singing
-- working out
-- video games
-- films & series`,
+  content: interactive.interests.map((i) => `- ${i}`).join('\n'),
 };
 
 const domainsInfo: FsFile = {
   type: 'file',
-  content: `- Software Development
-- Data Engineering
-- Machine Learning & AI
-- DevOps (AWS)`,
+  content: interactive.domains.map((d) => `- ${d}`).join('\n'),
 };
 
 const projectsInfo: FsFile = {
   type: 'file',
   content: (
     <pre className="whitespace-pre-wrap font-[inherit] text-[var(--color-terminal-text)]">
-{`ISRO Safe Ship Navigation
-─────────────────────────
-Backend collaboration with VNIT Nagpur. Python + Flask.
-  · Task queuing with Celery
-  · A* routing
-  · Caching for performance
-  · Comprehensive error handling
-  · Monitoring for reliability
-Designed for real-time maritime navigation at scale.
-
-Notification Microservice (Go + Kafka)
-──────────────────────────────────────
-Async event streaming with Apache Kafka.
-  · Multi-channel delivery — email, SMS, push
-  · Retries, monitoring, message ack semantics
-  · Consumer-producer patterns built from scratch
-Source: `}{link('https://github.com/varunvilva/NotificationGoKafka', 'github.com/varunvilva/NotificationGoKafka', true)}
+      {interactive.projectsText}
+      {link(interactive.projectsSourceLink.href, interactive.projectsSourceLink.label, true)}
     </pre>
   ),
 };
 
 const experienceInfo: FsFile = {
   type: 'file',
-  content: `Kickdrum  ·  Bengaluru, India  ·  Jan 2025 — Present
-────────────────────────────────────────────────────
-Full stack: React + TypeScript, Java backends, AWS.
-Some data engineering exposure.
-Currently leading a hotel management system (client + admin portals),
-designed for fault-tolerance and scale.
-
-Jio Platforms  ·  Mumbai, India  ·  May — Aug 2024
-──────────────────────────────────────────────────
-Built a notification microservice from scratch.
-FastAPI + Azure EventHub. Event-driven architecture with custom
-failure-handling and retry logic.
-Integrated Twilio + Gupshup for SMS / WhatsApp delivery.`,
+  content: interactive.experienceText,
 };
 
 const educationInfo: FsFile = {
   type: 'file',
-  content: `B.Tech Computer Science & Engineering
-IIIT Vadodara
-
-B.Sc. Data Science and Programming
-IIT Madras`,
+  content: interactive.educationText,
 };
 
 const resumeLink: FsLink = {
   type: 'link',
-  opensUrl: '/VarunVilvadrinath_Resume.pdf',
-  description: 'PDF document — opens in a new tab',
+  opensUrl: interactive.resume.url,
+  description: interactive.resume.description,
 };
 
 export const filesystem: FsDir = {

@@ -1,15 +1,9 @@
 import { useState } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import Container from '../Container/Container';
+import content from '../../data/content';
 
-const navItems = [
-  { id: 'projects', label: 'Projects' },
-  { id: 'publication', label: 'Publications' },
-  { id: 'experience', label: 'Experiences' },
-  { id: 'achievements', label: 'Achievements' },
-  { id: 'certifications', label: 'Certifications' },
-  { id: 'contact', label: 'Contact' },
-] as const;
+const navItems = content.navbar;
 
 const SunIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

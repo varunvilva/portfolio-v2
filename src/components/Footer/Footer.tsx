@@ -1,3 +1,5 @@
+import content from '../../data/content';
+
 const Footer = () => {
   return (
     <footer
@@ -9,7 +11,7 @@ const Footer = () => {
         text-center text-sm text-[var(--color-text-secondary)]
       "
     >
-      Made By Varun Vilvadrinath © {new Date().getFullYear()}
+      Made By {content.footer.author} © {new Date().getFullYear()}
     </footer>
   );
 };

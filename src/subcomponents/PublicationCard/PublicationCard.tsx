@@ -13,9 +13,9 @@ const PublicationCard = ({ title, imageUrl, imageAlt, liveUrl }: PublicationCard
         overflow-hidden
         rounded-xl
         bg-[var(--color-surface)]
-        shadow-[0_4px_20px_var(--color-shadow)]
-        transition-[transform,box-shadow,background-color] duration-300
-        hover:-translate-y-1 hover:shadow-[0_8px_30px_var(--color-shadow)]
+        shadow-[0_4px_15px_var(--color-shadow)]
+        transition-all duration-300
+        hover:-translate-y-1 hover:shadow-[0_8px_25px_var(--color-shadow)]
       "
     >
       <div className="flex h-56 w-full items-center justify-center bg-[var(--color-surface)] md:h-auto md:w-2/5">
